@@ -1,10 +1,8 @@
 import * as React from 'react';
 import {Component} from 'react';
+import {Howl, Howler} from 'howler';
 
-const audio = new Audio();
-audio.autoplay = false;
-audio.preload = 'none';
-audio.volume = 0.1;
+Howler.volume(0.1);
 
 export interface PlayerProps {
     src: string;
@@ -15,7 +13,8 @@ export interface PlayerState {
 }
 
 export class Player extends Component<PlayerProps, PlayerState> {
-    componentWillUnmount: () => void;
+    private howl: Howl;
+    private static activePlayer: Player | undefined;
 
     constructor(props: PlayerProps) {
         super(props);
@@ -25,44 +24,42 @@ export class Player extends Component<PlayerProps, PlayerState> {
         };
 
         this.toggle = this.toggle.bind(this);
-    }
-
-    updateIsPlaying() {
-        this.setState((state, props) => {
-            const isPlaying = 
-                !audio.paused && 
-                audio.currentSrc === props.src;
-
-            return {isPlaying};
+        this.howl = new Howl({
+            src: [props.src],
+            autoplay: false,
+            preload: false,
+            format: ['mp3'],
         });
     }
 
-    componentDidMount() {
-        this.updateIsPlaying();
-        const update = this.updateIsPlaying.bind(this);
-        const updateOn = [
-            'loadstart',
-            'playing',
-            'pause',
-        ];
+    stop() {
+        this.howl.stop();
+        this.setState({isPlaying: false});
 
-        updateOn.forEach(
-            (event) => audio.addEventListener(event, update)
-        );
+        if (Player.activePlayer === this) {
+            Player.activePlayer = undefined;
+        }
+    }
 
-        this.componentWillUnmount = () =>
-            updateOn.forEach(
-                (event) => audio.removeEventListener(event, update)
-            );
+    play() {
+        if (Player.activePlayer && Player.activePlayer !== this) {
+            Player.activePlayer.stop();
+        }
+
+        if (this.howl.state() === 'unloaded') {
+            this.howl.load();
+        }
+
+        this.howl.play();
+        this.setState({isPlaying: true});
+        Player.activePlayer = this;
     }
 
     toggle() {
-        if (this.state.isPlaying) {
-            audio.pause();
+        if (this.howl.playing()) {
+            this.stop();
         } else {
-            audio.src = this.props.src;
-            audio.currentTime = 0;
-            audio.play();
+            this.play();
         }
     }
 
@@ -75,5 +72,9 @@ export class Player extends Component<PlayerProps, PlayerState> {
                 {this.state.isPlaying ? 'stop' : 'play'}
             </button>
         );
+    }
+
+    componentWillUnmount() {
+        this.stop();
     }
 }
