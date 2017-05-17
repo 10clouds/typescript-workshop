@@ -2,10 +2,22 @@ import {buildUrl} from '../utils/urls';
 
 export const BASE_URL = 'https://api.spotify.com/v1';
 
+export interface CoverData {
+    height: number;
+    width: number;
+    url: string;
+}
+
+export interface AlbumData {
+    album_type: string;
+    images: CoverData[];
+}
+
 export interface TrackData {
     id: string;
     name: string;
     preview_url: string;
+    album: AlbumData;
 }
 
 export interface SearchData {

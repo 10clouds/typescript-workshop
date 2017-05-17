@@ -49,13 +49,16 @@ class App extends Component<AppProps, AppState> {
   render() {
     return (
       <div>
-        <header>
-          <input 
-            type="text" 
-            placeholder="Search" 
-            value={this.state.query}
-            onChange={this.queryChanged}
-          />
+        <header className="app-header">
+          <div className="container">
+            <input 
+              type="text" 
+              placeholder="Search..." 
+              className="search-input"
+              value={this.state.query}
+              onChange={this.queryChanged}
+            />
+          </div>
         </header>
         <TrackList tracks={this.state.results}/>
       </div>

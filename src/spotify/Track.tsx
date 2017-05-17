@@ -10,8 +10,15 @@ export interface TrackProps {
 export function Track(props: TrackProps) {
     return (
         <div>
-            {props.data.name} 
-            <Player src={props.data.preview_url}/>
+            <img 
+                className="track-cover"
+                src={props.data.album.images[1].url} 
+                alt="album cover"
+            />
+            <div className="track-player">
+                <Player src={props.data.preview_url}/>
+                {props.data.name} 
+            </div>
         </div>
     );
 }

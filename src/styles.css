@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+body {
+    font: normal 500 18px/1.5 'Montserrat', sans-serif;
+    color: black;
+    margin: 0;
+}
+
+input,
+button {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.app-header {
+    background-color: black;
+    color: white;
+    padding: 25px 30px;
+}
+
+.search-input {
+    background-color: transparent;
+    color: white;
+    border: 3px solid currentColor;
+    padding: 10px 20px;
+    border-radius: 25px;
+    width: 100%;
+}
+
+.search-input::-webkit-input-placeholder {
+  color: white;
+  letter-spacing: 1px;
+}
+
+.search-input::-moz-placeholder {
+  color: white;
+  letter-spacing: 1px;
+}
+
+.search-input:-ms-input-placeholder {
+  color: white;
+  letter-spacing: 1px;
+}
+
+.track-list {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.track-list li {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(25% - 30px);
+    margin: 15px;
+}
+
+.track-cover {
+    max-width: 100%;
+    box-shadow: 0 0 16px 0 rgba(144, 144, 144, .35);
+}
+
+.track-player {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    margin-top: 15px;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.track-player .play-button {
+    margin-right: 15px;
+}
+
+.play-button {
+    width: 30px;
+    height: 30px;
+    max-width: 30px;
+    flex: 1 0 auto;
+    background: linear-gradient(to bottom right, #32CD64, #16923e 75%);
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 16px 0 rgba(144, 144, 144, .35);
+}

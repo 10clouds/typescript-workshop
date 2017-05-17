@@ -16,5 +16,5 @@ export function TrackList(props: TrackListProps) {
         )
     );
 
-    return <ul>{tracks}</ul>;
+    return <ul className="track-list container">{tracks}</ul>;
 }
