@@ -9,8 +9,13 @@ export interface CoverData {
 }
 
 export interface AlbumData {
+    name: string;
     album_type: string;
     images: CoverData[];
+}
+
+export interface ArtistData {
+    name: string;
 }
 
 export interface TrackData {
@@ -18,6 +23,7 @@ export interface TrackData {
     name: string;
     preview_url: string;
     album: AlbumData;
+    artists: ArtistData[];
 }
 
 export interface SearchData {
@@ -30,7 +36,7 @@ export async function search(query: string) {
     const url = buildUrl(`${BASE_URL}/search`, {
         q: query,
         type: 'track',
-        limit: 10,
+        limit: 24,
     });
 
     const response = await fetch(url);

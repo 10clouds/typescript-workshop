@@ -69,12 +69,11 @@ export class Player extends Component<PlayerProps, PlayerState> {
                 type="button"
                 className="play-button"
                 onClick={this.toggle}
+                title={this.state.isPlaying ? 'stop' : 'play'}
             >
-                <span 
-                    className={this.state.isPlaying ? 'fa fa-pause' : 'fa fa-play'}
-                    title={this.state.isPlaying ? 'stop' : 'play'}
-                >
-                </span>
+                <span className={
+                    this.state.isPlaying ? 'fa fa-stop' : 'fa fa-play'
+                }/>
             </button>
         );
     }
