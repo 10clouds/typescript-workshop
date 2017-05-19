@@ -1,7 +1,5 @@
 import {buildUrl} from '../utils/urls';
 
-export const BASE_URL = 'https://api.spotify.com/v1';
-
 export interface CoverData {
     height: number;
     width: number;
@@ -29,17 +27,60 @@ export interface TrackData {
 export interface SearchData {
     tracks: {
         items: TrackData[];
+        next: string;
+        previous: string;
     };
 }
 
-export async function search(query: string) {
-    const url = buildUrl(`${BASE_URL}/search`, {
-        q: query,
-        type: 'track',
-        limit: 24,
-    });
+export enum Direction {
+    Next = 1,
+    Previous = -1,
+}
 
-    const response = await fetch(url);
-    const data: SearchData = await response.json();
-    return data;
+export class SpotifyTrackSearch {
+    static readonly baseUrl = `https://api.spotify.com/v1/search`;
+    nextUrl: string;
+    previousUrl: string;
+
+    async search(query: string, direction?: Direction) {
+        const directionUrl = this.paginationUrl(direction);
+        if (direction && !directionUrl) {
+            throw new Error(
+                `SpotifySearch: No direction url to query.
+                You must call search without direction for the first time`
+            );
+        }
+
+        const url = directionUrl || buildUrl(
+            SpotifyTrackSearch.baseUrl,
+            {
+                q: query,
+                type: 'track',
+                limit: 24,
+            }
+        );
+
+        const response = await fetch(url);
+        const data: SearchData = await response.json();
+        
+        this.nextUrl = data.tracks.next;
+        this.previousUrl = data.tracks.previous;
+
+        return data;
+    }
+
+    hasDirection(direction: Direction): boolean {
+        return !!this.paginationUrl(direction);
+    }
+
+    private paginationUrl(direction: Direction) {
+        switch (direction) {
+            case Direction.Next:
+                return this.nextUrl;
+            case Direction.Previous:
+                return this.previousUrl;
+            default:
+                return;
+        }
+    }
 }

@@ -2,7 +2,8 @@ import * as React from 'react';
 import { Component } from 'react';
 
 import {TrackList} from './spotify/TrackList';
-import {search, TrackData} from './spotify/api';
+import {SpotifyTrackSearch, TrackData, Direction} from './spotify/api';
+import {Pagination} from "./spotify/Pagination";
 
 interface AppProps {}
 
@@ -12,6 +13,8 @@ interface AppState {
 }
 
 class App extends Component<AppProps, AppState> {
+  searchTracks = new SpotifyTrackSearch();
+
   constructor(props: AppProps) {
     super(props);
 
@@ -21,6 +24,7 @@ class App extends Component<AppProps, AppState> {
     };
 
     this.queryChanged = this.queryChanged.bind(this);
+    this.isDirectionHidden = this.isDirectionHidden.bind(this);
   }
 
   componentDidMount() {
@@ -33,9 +37,9 @@ class App extends Component<AppProps, AppState> {
     this.updateResults(query);
   }
 
-  async updateResults(query: string) {
+  async updateResults(query: string, direction?) {
     if (query) {
-      const data = await search(query);
+      const data = await this.searchTracks.search(query, direction);
       const results = data.tracks.items;
       
       this.setState(
@@ -46,21 +50,33 @@ class App extends Component<AppProps, AppState> {
     }
   }
 
+  isDirectionHidden(direction: Direction) {
+    if (!this.state.query) {
+      return true;
+    }
+
+    return !this.searchTracks.hasDirection(direction);
+  }
+
   render() {
     return (
-      <div>
+      <div className='container'>
         <header className="app-header">
-          <div className="container">
-            <input 
-              type="text" 
-              placeholder="Search..." 
-              className="search-input"
-              value={this.state.query}
-              onChange={this.queryChanged}
-            />
-          </div>
+          <input 
+            type="text" 
+            placeholder="Search..." 
+            className="search-input"
+            value={this.state.query}
+            onChange={this.queryChanged}
+          />
         </header>
         <TrackList tracks={this.state.results}/>
+        <Pagination 
+          onNext={() => this.updateResults(this.state.query, 1)} 
+          onPrevious={() => this.updateResults(this.state.query, -1)} 
+          hideNext={this.isDirectionHidden(Direction.Next)}
+          hidePrevious={this.isDirectionHidden(Direction.Previous)}
+        />
       </div>
     );
   }
