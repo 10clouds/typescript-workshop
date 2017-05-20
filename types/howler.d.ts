@@ -366,8 +366,8 @@ declare module 'howler' {
          * 
          * @memberof Howl
          */
-        on(event: EventName, listener: Callback, id?: SoundId)
-        on(event: 'loaderror', listener: Errback, id?: SoundId)
+        on(event: EventName, listener: Callback, id?: SoundId): void
+        on(event: 'loaderror', listener: Errback, id?: SoundId): void
 
         /**
          * Same as on, but it removes itself after the callback is fired.
@@ -378,8 +378,8 @@ declare module 'howler' {
          * 
          * @memberof Howl
          */
-        once(event: EventName, listener: Callback, id?: SoundId)
-        once(event: 'loaderror', listener: Errback, id?: SoundId)
+        once(event: EventName, listener: Callback, id?: SoundId): void
+        once(event: 'loaderror', listener: Errback, id?: SoundId): void
 
         /**
          * Remove event listener that you've set. 
@@ -392,8 +392,8 @@ declare module 'howler' {
          * 
          * @memberof Howl
          */
-        off(event?: EventName, listener?: Callback, id?: SoundId)
-        off(event: 'loaderror', listener: Errback, id?: SoundId)
+        off(event?: EventName, listener?: Callback, id?: SoundId): void
+        off(event: 'loaderror', listener: Errback, id?: SoundId): void
 
         /**
          * This is called by default, but if you set preload to false, 
@@ -401,7 +401,7 @@ declare module 'howler' {
          * 
          * @memberof Howl
          */
-        load()
+        load(): void
 
         /**
          * Unload and destroy a Howl object. This will immediately stop 
@@ -409,7 +409,7 @@ declare module 'howler' {
          * 
          * @memberof Howl
          */
-        unload()
+        unload(): void
     }
 
     interface HowlerGlobal {
@@ -474,7 +474,7 @@ declare module 'howler' {
          * 
          * @memberof HowlerGlobal
          */
-        mute(muted: boolean)
+        mute(muted: boolean): void
 
         /**
          * Get the global volume for all sounds, relative to their own volume.
@@ -492,7 +492,7 @@ declare module 'howler' {
          * 
          * @memberof HowlerGlobal
          */
-        volume(volume: number)
+        volume(volume: number): void
 
         /**
          * Check supported audio codecs. Returns true if the codec is 
@@ -511,7 +511,7 @@ declare module 'howler' {
          * 
          * @memberof HowlerGlobal
          */
-        unload()
+        unload(): void
     }
 
     const Howler: HowlerGlobal;
