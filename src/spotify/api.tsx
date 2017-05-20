@@ -27,8 +27,8 @@ export interface TrackData {
 export interface SearchData {
     tracks: {
         items: TrackData[];
-        next: string;
-        previous: string;
+        next: string | null;
+        previous: string | null;
     };
 }
 
@@ -39,26 +39,31 @@ export enum Direction {
 
 export class SpotifyTrackSearch {
     static readonly baseUrl = `https://api.spotify.com/v1/search`;
-    nextUrl: string;
-    previousUrl: string;
+    
+    nextUrl: string | null = null;
+    previousUrl: string | null = null;
 
     async search(query: string, direction?: Direction) {
-        const directionUrl = this.paginationUrl(direction);
-        if (direction && !directionUrl) {
-            throw new Error(
-                `SpotifySearch: No direction url to query.
-                You must call search without direction for the first time`
-            );
-        }
+        let url: string;
 
-        const url = directionUrl || buildUrl(
-            SpotifyTrackSearch.baseUrl,
-            {
+        if (direction) {
+            const directionUrl = this.paginationUrl(direction);
+
+            if (!directionUrl) {
+                throw new Error(
+                    'SpotifySearch: No direction url to query. ' +
+                    'You must call search without direction for the first time.'
+                );
+            }
+
+            url = directionUrl;
+        } else {
+            url = buildUrl(SpotifyTrackSearch.baseUrl, {
                 q: query,
                 type: 'track',
-                limit: 24,
-            }
-        );
+                limit: 12,
+            });
+        }
 
         const response = await fetch(url);
         const data: SearchData = await response.json();
@@ -79,8 +84,6 @@ export class SpotifyTrackSearch {
                 return this.nextUrl;
             case Direction.Previous:
                 return this.previousUrl;
-            default:
-                return;
         }
     }
 }

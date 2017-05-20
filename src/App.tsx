@@ -37,7 +37,7 @@ class App extends Component<AppProps, AppState> {
     this.updateResults(query);
   }
 
-  async updateResults(query: string, direction?) {
+  async updateResults(query: string, direction?: Direction) {
     if (query) {
       const data = await this.searchTracks.search(query, direction);
       const results = data.tracks.items;
