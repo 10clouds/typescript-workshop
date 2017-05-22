@@ -27,6 +27,13 @@ button:hover, input:hover {
 	opacity: 1;
 }
 
+input:disabled,
+button:disabled {
+	cursor: default;
+	pointer-events: none;
+	opacity: 0.25;
+}
+
 button {
 	cursor: pointer;
 }

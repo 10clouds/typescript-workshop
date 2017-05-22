@@ -14,14 +14,14 @@ export function Pagination(props: PaginationProps) {
       <button
         onClick={props.onPrevious}
         className='pagination__btn pagination__btn--previous'
-        hidden={props.hidePrevious}
+        disabled={props.hidePrevious}
       >
         Previous
       </button>
       <button
         onClick={props.onNext}
         className='pagination__btn pagination__btn--next'
-        hidden={props.hideNext}
+        disabled={props.hideNext}
       >
         Next
       </button>
