@@ -21,7 +21,7 @@ import * as React from 'react'; // TypeScript
 - zmień sposób importu Reacta w `src/main.tsx`
 - usuń nieużywane paczki związane z Babelem z `package.json`
 
-Rozszerzenia pozostałych plików zmieniaj sukcesywanie, gdy będziesz nad nimi pracować w kolejnych krokach.
+Rozszerzenia pozostałych plików zmieniaj sukcesywanie, gdy będziesz nad nimi pracować w kolejnych krokach. Zmiana rozszerzenia może (choć nie musi) wymagać restartu serwera deweloperskiego.
 
 ```JSON
 // tsconfig.json
