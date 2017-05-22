@@ -1,6 +1,6 @@
 # Krok 3: Interfejsy
 
-Do przekazywania danych w JavaScripcie bardzo często wykorzystywane są obiekty anonimowe. Interfejsy mają za zadanie takie obiekty opisać i dać nam wgląd, jakie posiadają właściwości. Zobacz na przykładową deklarację interfejsu:
+Do przekazywania danych w JavaScripcie bardzo często wykorzystywane są obiekty anonimowe. Interfejsy mają za zadanie takie obiekty opisać i pozwolić na sprawdzanie poprawnego ich wykorzystania podczas transpilacji. Zobacz na przykładową deklarację interfejsu:
 
 ```ts
 interface Square {
@@ -22,15 +22,16 @@ function makeSquare(type: string): Square { ... }
 const squares: Square[] = [...];
 ```
 
-## Interfejsy c.d.
+## Opisywanie funkcji, tablicy oraz klas
 
-Interfejsy mogą opisywać funkcje, tablice i implementację klas.
+Interfejsy mogą opisywać także funkcje, tablice i implementację klas.
 ```ts
 interface SearchFunc {
     (source: string, subString: string): boolean;
 }
 interface StringArray {
     [index: number]: string;
+//   ^ nazwa własna indeksu
 }
 interface Clock {
     currentTime: Date;
@@ -38,7 +39,19 @@ interface Clock {
 }
 ```
 
-## Deklaracja w miejscu wykorzystania
+## Rozszerzanie
+
+Interfejsy mogą dziedziczyć po sobie. Mechanizm działa tak samo, jak w przypadku klas - definicje pól zostaną przepisane do nowego interfejsu.
+```ts
+interface BaseObject {
+    id: string;
+}
+interface Author extends BaseObject {
+    name: string;
+}
+```
+
+## Deklaracja inline
 
 Interfejsy nie muszą być deklarowane ze słowem kluczowym. Jeżeli nie ma potrzeby reużywania interfejsu można zadeklarować go w miejscu wykorzystania.
 
@@ -47,5 +60,8 @@ function printLabel(labelledObj: { label: string }) { ... }
 ```
 
 ## Do zrobienia
-- opisz typ zwracanych danych korzystając z interfejsów w `spotify/api.js`
-    - tip: aby opisać, że funkcja zwraca `Promise` użyj `Promise<...>`, gdzie `...` to nazwa twojego interfejsu
+- opisz typ zwracanych danych korzystając z interfejsów w metodzie `search()` pliku `search/trackSearch.js`
+
+## Tips
+Aby opisać `Promise` użyj `Promise<...>`, gdzie `...` to nazwa twojego interfejsu. `Promise` to interfejs generyczny, więcej o nich w późniejszych rozdziałach.
+Spotify posiada bardzo dobrą dokumentację, może być pomocna przy budowie interfejsu: https://developer.spotify.com/web-api/search-item/

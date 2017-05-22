@@ -1,6 +1,6 @@
 # Krok 5: Generyczne interfejsy
 
-Interfejsy, jakie przedstawiliśmy do tej pory nie były do końca reużywalne. To wprowadzają interfejsy generyczne. Pozwalają podczas wykorzystania na przekazanie typu, który będzie mógł być wykorzystywany w deklaracji. Niektóre z nich to:
+Interfejsy przedstawione do tej pory nie były do końca reużywalne. Możemy je rozszerzać podobnie do klas używając słowa `extend`, jednak cały czas nie pozwalają na przekazanie innego typu jako parametr. Taką funkcjonalność zapewniają interfejsy generyczne. Pozwalają podczas wykorzystania na przekazanie typu, który będzie mógł być wykorzystywany w dalszej deklaracji. Przykładowe generyki, używane w poprzednich krokach:
 
 ```ts
 Promise<T>
@@ -9,21 +9,21 @@ Array<T> // znane również jako T[]
 ```
 
 ## Deklaracja
+Definicja typu generycznego różni się dodatkowymi nawiasami ostrymi występującymi po nazwie typu. Możemy poprosić o przekazanie wielu argumentów, jak w przypadku `Component`. Następnie nazwę typu można wykorzystywać dalej w deklaracji.
 
 ```ts
 interface GenericIdentity<T> {
     identity: T;
     ...
 }
-class GenericClass<T> { ... }
+class GenericClass<T, U> { ... }
 function genericFn<T>(arg: T): T[] { ... }
 ```
 
-Typ generyczny wymaga dodatkowego parametru, który można później wykorzystywać w deklaracji.
-
 ## Organiczenia
 
-Możemy ograniczać przekazywane typy w następujący sposób:
+Przekazywane typy można ograniczać. W poniższym przykładzie akceptowane są tylko typy posiadające pole `sum`.
+
 ```ts
 interface Summable {
     sum: number;
@@ -33,3 +33,5 @@ function summableUtil<T extends Summable>(): T { ... }
 ```
 
 ## Do zrobienia
+
+- spróbuj stworzyć generyczny interfejs dla obiektu stronnicowania (paging object) będącego częścią odpowiedzi z API spotify w `src/trackSearch`. Opis tego obiektu znajdziesz tutaj: https://developer.spotify.com/web-api/object-model/#paging-object
