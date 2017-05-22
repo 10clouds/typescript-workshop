@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { Component } from 'react';
 
-import {SpotifyTrackData} from '../../types/spotifySearchResults';
-import {TrackSearch, Direction} from './trackSearch';
+import {TrackSearch, Direction, SpotifyTrackData} from './trackSearch';
 import {TrackList} from './TrackList';
 import {Pagination} from "./Pagination";
 

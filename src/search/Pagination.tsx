@@ -8,25 +8,23 @@ interface PaginationProps {
   hidePrevious: boolean;
 }
 
-export class Pagination extends Component<PaginationProps, undefined> {
-  render() {
-    return (
-      <div className='pagination'>
-        <button 
-          onClick={this.props.onPrevious}
-          className='pagination__btn pagination__btn--previous'
-          hidden={this.props.hidePrevious}
-        >
-          Previous
-        </button>
-        <button 
-          onClick={this.props.onNext}
-          className='pagination__btn pagination__btn--next'
-          hidden={this.props.hideNext}
-        >
-          Next
-        </button>
-      </div>
-    );
-  }
+export function Pagination(props: PaginationProps) {
+  return (
+    <div className='pagination'>
+      <button
+        onClick={props.onPrevious}
+        className='pagination__btn pagination__btn--previous'
+        hidden={props.hidePrevious}
+      >
+        Previous
+      </button>
+      <button
+        onClick={props.onNext}
+        className='pagination__btn pagination__btn--next'
+        hidden={props.hideNext}
+      >
+        Next
+      </button>
+    </div>
+  );
 }
