@@ -6,7 +6,7 @@ const distDir = path.join(__dirname, './dist');
 
 module.exports = {
   entry: {
-    main: './src/main.tsx',
+    main: './src/main.jsx',
   },
   output: {
     filename: '[name].[hash].js',

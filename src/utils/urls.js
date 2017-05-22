@@ -1,6 +1,4 @@
-export type QueryParams = {[key: string]: string|number};
-
-export function buildQueryString(params: QueryParams) {
+export function buildQueryString(params) {
 	return ( 
 		Object
 		.keys(params)
@@ -11,6 +9,6 @@ export function buildQueryString(params: QueryParams) {
 	);
 }
 
-export function buildUrl(baseUrl: string, params: QueryParams) {
+export function buildUrl(baseUrl, params) {
 	return `${baseUrl}?${buildQueryString(params)}`;
 }

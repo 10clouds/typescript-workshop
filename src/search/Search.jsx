@@ -1,16 +1,11 @@
 import * as React from 'react';
-import { Component } from 'react';
+import {Component} from 'react';
 
-import {TrackSearch, Direction, SpotifyTrackData} from './trackSearch';
+import {TrackSearch} from './trackSearch';
 import {TrackList} from './TrackList';
 import {Pagination} from "./Pagination";
 
-interface SearchState {
-  query: string;
-  results: SpotifyTrackData[];
-}
-
-export class Search extends Component<{}, SearchState> {
+export class Search extends Component {
   searchTracks = new TrackSearch();
 
   constructor() {
@@ -29,13 +24,13 @@ export class Search extends Component<{}, SearchState> {
     this.updateResults(this.state.query);
   }
 
-  queryChanged(event: React.ChangeEvent<HTMLInputElement>) {
+  queryChanged(event) {
     const query = event.target.value;
     this.setState({query});
     this.updateResults(query);
   }
 
-  async updateResults(query: string, direction?: Direction) {
+  async updateResults(query, direction) {
     if (query) {
       const data = await this.searchTracks.search(query, direction);
       const results = data.tracks.items;
@@ -48,7 +43,7 @@ export class Search extends Component<{}, SearchState> {
     }
   }
 
-  isDirectionHidden(direction: Direction) {
+  isDirectionHidden(direction) {
     if (!this.state.query) {
       return true;
     }
@@ -72,8 +67,8 @@ export class Search extends Component<{}, SearchState> {
         <Pagination 
           onNext={() => this.updateResults(this.state.query, 1)} 
           onPrevious={() => this.updateResults(this.state.query, -1)} 
-          hideNext={this.isDirectionHidden(Direction.Next)}
-          hidePrevious={this.isDirectionHidden(Direction.Previous)}
+          hideNext={this.isDirectionHidden(1)}
+          hidePrevious={this.isDirectionHidden(-1)}
         />
       </div>
     );

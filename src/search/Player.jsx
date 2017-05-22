@@ -4,19 +4,8 @@ import {Howl, Howler} from 'howler';
 
 Howler.volume(0.1);
 
-interface PlayerProps {
-  src: string;
-}
-
-interface PlayerState {
-  isPlaying: boolean;
-}
-
-export class Player extends Component<PlayerProps, PlayerState> {
-  private howl: Howl;
-  private static activePlayer: Player | undefined;
-
-  constructor(props: PlayerProps) {
+export class Player extends Component {
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -24,6 +13,7 @@ export class Player extends Component<PlayerProps, PlayerState> {
     };
 
     this.toggle = this.toggle.bind(this);
+    this.activePlayer = null;
     this.howl = new Howl({
       src: [props.src],
       autoplay: false,

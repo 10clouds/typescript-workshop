@@ -3,11 +3,7 @@ import * as React from 'react';
 import {Track} from './Track';
 import {SpotifyTrackData} from './trackSearch';
 
-export interface TrackListProps {
-  tracks: SpotifyTrackData[];
-}
-
-export function TrackList(props: TrackListProps) {
+export function TrackList(props) {
   const tracks = props.tracks.map(
     (track) => (
       <li key={track.id}>

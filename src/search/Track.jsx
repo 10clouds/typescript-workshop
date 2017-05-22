@@ -3,11 +3,7 @@ import * as React from 'react';
 import {Player} from './Player';
 import {SpotifyTrackData} from './trackSearch';
 
-export interface TrackProps {
-  data: SpotifyTrackData;
-}
-
-export function Track(props: TrackProps) {
+export function Track(props) {
   const track = props.data;
   const album = props.data.album;
   const albumImage = album.images[1].url;
