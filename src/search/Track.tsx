@@ -1,10 +1,10 @@
 import * as React from 'react';
 
 import {Player} from './Player';
-import {TrackData} from './api';
+import {SpotifyTrackData} from '../../types/spotifySearchResults';
 
 export interface TrackProps {
-    data: TrackData;
+    data: SpotifyTrackData;
 }
 
 export function Track(props: TrackProps) {

@@ -4,11 +4,11 @@ import {Howl, Howler} from 'howler';
 
 Howler.volume(0.1);
 
-export interface PlayerProps {
+interface PlayerProps {
     src: string;
 }
 
-export interface PlayerState {
+interface PlayerState {
     isPlaying: boolean;
 }
 

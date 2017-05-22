@@ -1,36 +1,5 @@
 import {buildUrl} from '../utils/urls';
-
-export interface CoverData {
-    height: number;
-    width: number;
-    url: string;
-}
-
-export interface AlbumData {
-    name: string;
-    album_type: string;
-    images: CoverData[];
-}
-
-export interface ArtistData {
-    name: string;
-}
-
-export interface TrackData {
-    id: string;
-    name: string;
-    preview_url: string;
-    album: AlbumData;
-    artists: ArtistData[];
-}
-
-export interface SearchData {
-    tracks: {
-        items: TrackData[];
-        next: string | null;
-        previous: string | null;
-    };
-}
+import {SpotifyTrackResults} from '../../types/spotifySearchResults';
 
 export enum Direction {
     Next = 1,
@@ -43,7 +12,7 @@ export class SpotifyTrackSearch {
     nextUrl: string | null = null;
     previousUrl: string | null = null;
 
-    async search(query: string, direction?: Direction) {
+    async search(query: string, direction?: Direction): Promise<SpotifyTrackResults> {
         let url: string;
 
         if (direction) {
@@ -66,7 +35,7 @@ export class SpotifyTrackSearch {
         }
 
         const response = await fetch(url);
-        const data: SearchData = await response.json();
+        const data: SpotifyTrackResults = await response.json();
         
         this.nextUrl = data.tracks.next;
         this.previousUrl = data.tracks.previous;
