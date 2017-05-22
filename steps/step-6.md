@@ -1,4 +1,4 @@
-# Krok 7: Zaawansowane typy
+# Krok 6: Zaawansowane typy
 
 Najczęściej używane deklaracje typów już mamy za sobą, czasem jednak
 nie wystarczą one do precyzyjnego opisania pewnych funkcji co

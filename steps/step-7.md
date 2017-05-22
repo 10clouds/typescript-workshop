@@ -1,4 +1,4 @@
-# Krok 7 - Definicje typów dla bibliotek
+# Krok 7: Definicje typów dla bibliotek
 
 Aby efektywnie korzystać z TypeScript, musi on mieć dostęp do definicji
 typów bibliotek z których korzystamy. Z punktu widzenia ich użytkownika

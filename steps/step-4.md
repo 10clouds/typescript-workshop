@@ -1,4 +1,4 @@
-# Krok 3: Klasy
+# Krok 4: Klasy
 
 Komponenty w Reactcie najczęściej definiowane są przy wykorzystaniu klas ze standardu ES2015. Skupimy się głównie na dodatkowej składni TypeScriptu, jest to nadzbiór JavaScriptu, tak więc podstawy są zgodne z ES2015.
 
