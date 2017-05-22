@@ -1,8 +1,8 @@
 import {buildUrl} from '../utils/urls';
 
+const baseUrl = `https://api.spotify.com/v1/search`;
+
 export class TrackSearch {
-  static baseUrl = `https://api.spotify.com/v1/search`;
-  
   constructor() {
     this.nextUrl = null;
     this.previousUrl = null;
@@ -23,7 +23,7 @@ export class TrackSearch {
 
       url = directionUrl;
     } else {
-      url = buildUrl(TrackSearch.baseUrl, {
+      url = buildUrl(baseUrl, {
         q: query,
         type: 'track,artist',
         limit: 12,

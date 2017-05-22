@@ -6,11 +6,10 @@ import {TrackList} from './TrackList';
 import {Pagination} from "./Pagination";
 
 export class Search extends Component {
-  searchTracks = new TrackSearch();
-
   constructor() {
     super();
 
+    this.searchTracks = new TrackSearch();
     this.state = {
       query: '',
       results: [],
