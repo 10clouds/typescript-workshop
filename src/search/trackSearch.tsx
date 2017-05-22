@@ -31,14 +31,14 @@ export interface SpotifyTrackData extends SpotifyObjectBase {
   artists: SpotifyArtistData[];
 }
 
-export interface SpotifySearchResult<T> {
+export interface SpotifyPagingObject<T> {
   items: T[];
   next: string;
   previous: string;
 }
 
 export interface SpotifyTrackResults {
-  tracks: SpotifySearchResult<SpotifyTrackData>;
+  tracks: SpotifyPagingObject<SpotifyTrackData>;
 }
 
 export enum Direction {
