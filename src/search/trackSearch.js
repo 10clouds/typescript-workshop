@@ -3,9 +3,6 @@ import {buildUrl} from '../utils/urls';
 const baseUrl = `https://spotify-proxy-workshop.herokuapp.com/search`;
 
 export class TrackSearch {
-  nextUrl;
-  previousUrl;
-
   async search(query, direction) {
     let url;
 
