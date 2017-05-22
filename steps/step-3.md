@@ -47,5 +47,8 @@ function printLabel(labelledObj: { label: string }) { ... }
 ```
 
 ## Do zrobienia
-- opisz typ zwracanych danych korzystając z interfejsów w `spotify/api.js`
-    - tip: aby opisać, że funkcja zwraca `Promise` użyj `Promise<...>`, gdzie `...` to nazwa twojego interfejsu
+- opisz typ zwracanych danych korzystając z interfejsów w metodzie `search()` pliku `search/trackSearch.js`
+
+## Tips
+Aby opisać `Promise` użyj `Promise<...>`, gdzie `...` to nazwa twojego interfejsu. `Promise` to interfejs generyczny, więcej o nich w późniejszych rozdziałach.
+Spotify posiada bardzo dobrą dokumentację, może być pomocna przy budowie interfejsu: https://developer.spotify.com/web-api/search-item/
