@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import {Track} from './Track';
 import {SpotifyTrackData} from './trackSearch';
