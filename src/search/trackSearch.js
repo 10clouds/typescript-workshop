@@ -3,10 +3,8 @@ import {buildUrl} from '../utils/urls';
 const baseUrl = `https://api.spotify.com/v1/search`;
 
 export class TrackSearch {
-  constructor() {
-    this.nextUrl = null;
-    this.previousUrl = null;
-  }
+  nextUrl;
+  previousUrl;
 
   async search(query, direction) {
     let url;
@@ -32,7 +30,7 @@ export class TrackSearch {
 
     const response = await fetch(url);
     const data = await response.json();
-    
+
     this.nextUrl = data.tracks.next;
     this.previousUrl = data.tracks.previous;
 

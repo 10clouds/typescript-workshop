@@ -15,7 +15,7 @@ export function Track(props) {
        style={{
         backgroundImage: `url(${albumImage})`,
        }}>
-      
+
       <div className="track-overlay">
         <div className="track-info">
           <p className="track-title">
