@@ -1,8 +1,0 @@
-{
-	"compilerOptions": {
-		"allowJs": true,
-		"jsx": "react",
-		"lib": ["es2015", "dom"],
-		"strict": true
-	}
-}
