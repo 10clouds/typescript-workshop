@@ -14,7 +14,7 @@ export class Clock {
 }
 ```
 
-## Różnice względem klas ES2015
+## Różnice względem ES2015
 
 - modyfikatory dostępu `public`, `private`, `protected`
     - domyślnie `public`
