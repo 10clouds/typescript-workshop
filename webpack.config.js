@@ -6,7 +6,7 @@ const distDir = path.join(__dirname, './dist');
 
 module.exports = {
   entry: {
-    main: ['./src/main.jsx'],
+    main: ['./src/main.tsx'],
   },
   output: {
     filename: '[name].[hash].js',
@@ -26,9 +26,7 @@ module.exports = {
         exclude: /(node_modules)/,
         use: [{
           loader: 'awesome-typescript-loader',
-          options: {
-            presets: ['react-app'],
-          },
+          options: {},
         }],
       },
       {
