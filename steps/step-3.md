@@ -22,19 +22,32 @@ function makeSquare(type: string): Square { ... }
 const squares: Square[] = [...];
 ```
 
-## Interfejsy c.d.
+## Opisywanie funkcji, tablicy oraz klas
 
-Interfejsy mogą opisywać funkcje, tablice i implementację klas.
+Interfejsy mogą opisywać także funkcje, tablice i implementację klas.
 ```ts
 interface SearchFunc {
     (source: string, subString: string): boolean;
 }
 interface StringArray {
     [index: number]: string;
+//   ^ nazwa własna indeksu
 }
 interface Clock {
     currentTime: Date;
     setTime(d: Date);
+}
+```
+
+## Rozszerzanie
+
+Interfejsy mogą dziedziczyć po sobie. Mechanizm działa tak samo, jak w przypadku klas - definicje pól zostaną przepisane do nowego interfejsu.
+```ts
+interface BaseObject {
+    id: string;
+}
+interface Author extends BaseObject {
+    name: string;
 }
 ```
 
