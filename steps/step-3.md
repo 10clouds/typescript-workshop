@@ -1,6 +1,6 @@
 # Krok 3: Interfejsy
 
-Do przekazywania danych w JavaScripcie bardzo często wykorzystywane są obiekty anonimowe. Interfejsy mają za zadanie takie obiekty opisać i dać nam wgląd, jakie posiadają właściwości. Zobacz na przykładową deklarację interfejsu:
+Do przekazywania danych w JavaScripcie bardzo często wykorzystywane są obiekty anonimowe. Interfejsy mają za zadanie takie obiekty opisać i pozwolić na sprawdzanie poprawnego ich wykorzystania podczas transpilacji. Zobacz na przykładową deklarację interfejsu:
 
 ```ts
 interface Square {
@@ -38,7 +38,7 @@ interface Clock {
 }
 ```
 
-## Deklaracja w miejscu wykorzystania
+## Deklaracja inline
 
 Interfejsy nie muszą być deklarowane ze słowem kluczowym. Jeżeli nie ma potrzeby reużywania interfejsu można zadeklarować go w miejscu wykorzystania.
 
