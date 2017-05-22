@@ -2,159 +2,159 @@
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 body {
-    font: normal 300 16px/1.5 'Montserrat', sans-serif;
-    color: black;
-    background: white;
-    margin: 0;
+	font: normal 300 16px/1.5 'Montserrat', sans-serif;
+	color: black;
+	background: white;
+	margin: 0;
 }
 
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 input,
 button {
-    font-family: inherit;
-    font-size: inherit;
-    outline: none;
-    opacity: 0.75;
+	font-family: inherit;
+	font-size: inherit;
+	outline: none;
+	opacity: 0.75;
 
-    transition: opacity 0.2s;
+	transition: opacity 0.2s;
 }
 
 input:hover, input:focus,
 button:hover, input:hover {
-    opacity: 1;
+	opacity: 1;
 }
 
 button {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .container {
-    max-width: 960px;
-    margin: 0 auto;
+	max-width: 960px;
+	margin: 0 auto;
 }
 
 .app-header {
-    padding: 25px 30px;
+	padding: 25px 30px;
 }
 
 .search-input {
-    background-color: transparent;
-    color:  #25C95E;
-    border: 3px solid #25C95E;
-    padding: 10px 20px;
-    border-radius: 25px;
-    width: 100%;
+	background-color: transparent;
+	color:  #25C95E;
+	border: 3px solid #25C95E;
+	padding: 10px 20px;
+	border-radius: 25px;
+	width: 100%;
 }
 
 .search-input::-webkit-input-placeholder {
-    color: #25C95E;
-    letter-spacing: 1px;
+	color: #25C95E;
+	letter-spacing: 1px;
 }
 
 .search-input::-moz-placeholder {
-    color: #25C95E;
-    letter-spacing: 1px;
+	color: #25C95E;
+	letter-spacing: 1px;
 }
 
 .search-input:-ms-input-placeholder {
-    color: #25C95E;
-    letter-spacing: 1px;
+	color: #25C95E;
+	letter-spacing: 1px;
 }
 
 .track-list {
-    list-style: none;
-    padding: 0;
-    text-align: center;
+	list-style: none;
+	padding: 0;
+	text-align: center;
 }
 
 .track-list li {
-    display: inline-block;
-    vertical-align: top;
-    width: calc(25% - 1px);
-    margin: 0 0 1px 1px;
+	display: inline-block;
+	vertical-align: top;
+	width: calc(25% - 1px);
+	margin: 0 0 1px 1px;
 }
 
 .track {
-    height: 200px;    
-    position: relative;
+	height: 200px;    
+	position: relative;
 
-    background-position: 50% 50%;
-    background-size: contain;
+	background-position: 50% 50%;
+	background-size: contain;
 }
 
 .track-overlay {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 33%;
-    width: 100%;
-    margin: 0;
-    background: rgba(0, 0, 0, 0.75);
-    color: white;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 33%;
+	width: 100%;
+	margin: 0;
+	background: rgba(0, 0, 0, 0.75);
+	color: white;
 
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 
-    transition: background-color 0.2s;
+	transition: background-color 0.2s;
 }
 
 .track:hover .track-overlay {
-    background-color: rgba(30, 215, 96, 0.75);
-    background-color: #25C95E;
+	background-color: rgba(30, 215, 96, 0.75);
+	background-color: #25C95E;
 }
 
 .track-info {
-    flex-grow: 1;
-    text-align: left;
-    padding: 0 15px;
-    overflow: hidden;
+	flex-grow: 1;
+	text-align: left;
+	padding: 0 15px;
+	overflow: hidden;
 }
 
 .track-player {
-    flex-grow: 0;
-    flex-shrink: 0;
-    padding: 0 15px 0 0;
+	flex-grow: 0;
+	flex-shrink: 0;
+	padding: 0 15px 0 0;
 }
 
 .track-title, .track-album {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    margin: 0;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	margin: 0;
 }
 
 .track-album {
-    font-size: 75%;
+	font-size: 75%;
 }
 
 .play-button {
-    width: 30px;
-    height: 30px;
-    max-width: 30px;
-    background: transparent;
-    color: white;
-    font-size: 10px;
-    text-align: center;
-    border: 1px solid white;
-    border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	max-width: 30px;
+	background: transparent;
+	color: white;
+	font-size: 10px;
+	text-align: center;
+	border: 1px solid white;
+	border-radius: 50%;
 }
 
 .pagination {
-    margin: 30px 0;
-    display: flex;
-    width: 100%;
-    justify-content: center;
+	margin: 30px 0;
+	display: flex;
+	width: 100%;
+	justify-content: center;
 }
 
 .pagination__btn {
-    background-color: transparent;
-    color:  #25C95E;
-    border: 3px solid #25C95E;
-    padding: 10px 20px;
-    border-radius: 25px;
-    margin: 0 10px;
+	background-color: transparent;
+	color:  #25C95E;
+	border: 3px solid #25C95E;
+	padding: 10px 20px;
+	border-radius: 25px;
+	margin: 0 10px;
 }

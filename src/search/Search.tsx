@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Component } from 'react';
 
 import {SpotifyTrackData} from '../../types/spotifySearchResults';
-import {SpotifyTrackSearch, Direction} from './api';
+import {TrackSearch, Direction} from './trackSearch';
 import {TrackList} from './TrackList';
 import {Pagination} from "./Pagination";
 
@@ -12,7 +12,7 @@ interface SearchState {
 }
 
 export class Search extends Component<{}, SearchState> {
-  searchTracks = new SpotifyTrackSearch();
+  searchTracks = new TrackSearch();
 
   constructor() {
     super();

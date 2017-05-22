@@ -4,17 +4,17 @@ import {Track} from './Track';
 import {SpotifyTrackData} from '../../types/spotifySearchResults';
 
 export interface TrackListProps {
-    tracks: SpotifyTrackData[];
+  tracks: SpotifyTrackData[];
 }
 
 export function TrackList(props: TrackListProps) {
-    const tracks = props.tracks.map(
-        (track) => (
-            <li key={track.id}>
-                <Track data={track}/>
-            </li>
-        )
-    );
+  const tracks = props.tracks.map(
+    (track) => (
+      <li key={track.id}>
+        <Track data={track}/>
+      </li>
+    )
+  );
 
-    return <ul className="track-list container">{tracks}</ul>;
+  return <ul className="track-list container">{tracks}</ul>;
 }

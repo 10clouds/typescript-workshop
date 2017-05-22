@@ -5,80 +5,80 @@ import {Howl, Howler} from 'howler';
 Howler.volume(0.1);
 
 interface PlayerProps {
-    src: string;
+  src: string;
 }
 
 interface PlayerState {
-    isPlaying: boolean;
+  isPlaying: boolean;
 }
 
 export class Player extends Component<PlayerProps, PlayerState> {
-    private howl: Howl;
-    private static activePlayer: Player | undefined;
+  private howl: Howl;
+  private static activePlayer: Player | undefined;
 
-    constructor(props: PlayerProps) {
-        super(props);
+  constructor(props: PlayerProps) {
+    super(props);
 
-        this.state = {
-            isPlaying: false,
-        };
+    this.state = {
+      isPlaying: false,
+    };
 
-        this.toggle = this.toggle.bind(this);
-        this.howl = new Howl({
-            src: [props.src],
-            autoplay: false,
-            preload: false,
-            format: ['mp3'],
-        });
+    this.toggle = this.toggle.bind(this);
+    this.howl = new Howl({
+      src: [props.src],
+      autoplay: false,
+      preload: false,
+      format: ['mp3'],
+    });
+  }
+
+  stop() {
+    this.howl.stop();
+    this.setState({isPlaying: false});
+
+    if (Player.activePlayer === this) {
+      Player.activePlayer = undefined;
+    }
+  }
+
+  play() {
+    if (Player.activePlayer && Player.activePlayer !== this) {
+      Player.activePlayer.stop();
     }
 
-    stop() {
-        this.howl.stop();
-        this.setState({isPlaying: false});
-
-        if (Player.activePlayer === this) {
-            Player.activePlayer = undefined;
-        }
+    if (this.howl.state() === 'unloaded') {
+      this.howl.load();
     }
 
-    play() {
-        if (Player.activePlayer && Player.activePlayer !== this) {
-            Player.activePlayer.stop();
-        }
+    this.howl.play();
+    this.setState({isPlaying: true});
+    Player.activePlayer = this;
+  }
 
-        if (this.howl.state() === 'unloaded') {
-            this.howl.load();
-        }
-
-        this.howl.play();
-        this.setState({isPlaying: true});
-        Player.activePlayer = this;
+  toggle() {
+    if (this.howl.playing()) {
+      this.stop();
+    } else {
+      this.play();
     }
+  }
 
-    toggle() {
-        if (this.howl.playing()) {
-            this.stop();
-        } else {
-            this.play();
-        }
-    }
+  render() {
+    return (
+      <button 
+        type="button"
+        className="play-button"
+        onClick={this.toggle}
+        title={this.state.isPlaying ? 'stop' : 'play'}
+      >
+        <span className={
+          this.state.isPlaying ? 'fa fa-stop' : 'fa fa-play'
+        }/>
+      </button>
+    );
+  }
 
-    render() {
-        return (
-            <button 
-                type="button"
-                className="play-button"
-                onClick={this.toggle}
-                title={this.state.isPlaying ? 'stop' : 'play'}
-            >
-                <span className={
-                    this.state.isPlaying ? 'fa fa-stop' : 'fa fa-play'
-                }/>
-            </button>
-        );
-    }
-
-    componentWillUnmount() {
-        this.stop();
-    }
+  componentWillUnmount() {
+    this.stop();
+  }
 }
