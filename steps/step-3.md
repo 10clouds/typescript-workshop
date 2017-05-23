@@ -86,7 +86,8 @@ function printLabel(labelledObj: { label: string }) { ... }
 ```
 
 ## Do zrobienia
-- opisz typ zwracanych danych korzystając z interfejsów w metodzie `search()` pliku `search/trackSearch.js`
+- opisz typ zwracanych danych korzystając z interfejsów w metodzie `search()` pliku `search/trackSearch.js`. Poniżej znajdziesz diagram z przykładową strukturą interfejsów:
+![Diagram](https://raw.githubusercontent.com/10clouds/typescript-workshop/master/steps/assets/api-interface-diagram.png)
 
 ## Tips
 - Aby opisać `Promise` użyj `Promise<...>`, gdzie `...` to nazwa twojego interfejsu. `Promise` to interfejs generyczny, więcej o nich w późniejszych rozdziałach.
