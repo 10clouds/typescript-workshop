@@ -1,14 +1,57 @@
 # Krok 3: Interfejsy
 
-Do przekazywania danych w JavaScripcie bardzo często wykorzystywane są obiekty anonimowe. Interfejsy mają za zadanie takie obiekty opisać i pozwolić na sprawdzanie poprawnego ich wykorzystania podczas transpilacji. Zobacz na przykładową deklarację interfejsu:
+Do przekazywania danych w JavaScripcie bardzo często wykorzystywane są obiekty anonimowe. Interfejsy mają za zadanie takie obiekty opisać i pozwolić na sprawdzanie poprawnego ich wykorzystania. Spójrz na przykładową deklarację interfejsu:
 
 ```ts
 interface Square {
-    color?: string;
-//       ^ pytajnik oznacza opcjonalną właściwość, która może przyjąć undefined
     width: number;
+    color?: string;
+//        ^ pytajnik oznacza opcjonalną właściwość, która może przyjąć undefined
     readonly type: string;
 //  ^ właściwość dostępna tylko do odczytu, deklarowana podczas tworzenia obiektu, podobnie jak const
+}
+
+const square: Square = {
+    width: 100,
+    type: 'custom',
+};
+```
+
+## Metody
+
+```ts
+interface Clock {
+    currentTime: Date;
+    setTime(d: Date): void;
+}
+const clock: Clock = {
+   currentTime = new Date,
+   setTime: function (date: Date) {
+       this.currentTime = date;
+   },
+}
+```
+
+## Funkcje
+```ts
+interface SearchFunc {
+    (source: string, subString: string): boolean;
+}
+const search: SearchFunc = function (source: string, subString: string) {
+    return source.includes(subString);
+}
+```
+
+## Słowniki
+```ts
+interface MonthMap {
+    [month: string]: Date;
+//   ^ nazwa własna indeksu wykorzystywana w podpowiedziach IDE
+}
+
+const monthMap = {
+   January: new Date(2017, 0, 1),
+   February: new Date(2017, 1, 1),
 }
 ```
 
@@ -20,23 +63,6 @@ import { Square } from '...';
 
 function makeSquare(type: string): Square { ... }
 const squares: Square[] = [...];
-```
-
-## Opisywanie funkcji, tablicy oraz klas
-
-Interfejsy mogą opisywać także funkcje, tablice i implementację klas.
-```ts
-interface SearchFunc {
-    (source: string, subString: string): boolean;
-}
-interface StringArray {
-    [index: number]: string;
-//   ^ nazwa własna indeksu
-}
-interface Clock {
-    currentTime: Date;
-    setTime(d: Date);
-}
 ```
 
 ## Rozszerzanie
@@ -51,7 +77,7 @@ interface Author extends BaseObject {
 }
 ```
 
-## Deklaracja inline
+## Anonimowe interfejsy
 
 Interfejsy nie muszą być deklarowane ze słowem kluczowym. Jeżeli nie ma potrzeby reużywania interfejsu można zadeklarować go w miejscu wykorzystania.
 
@@ -63,5 +89,5 @@ function printLabel(labelledObj: { label: string }) { ... }
 - opisz typ zwracanych danych korzystając z interfejsów w metodzie `search()` pliku `search/trackSearch.js`
 
 ## Tips
-Aby opisać `Promise` użyj `Promise<...>`, gdzie `...` to nazwa twojego interfejsu. `Promise` to interfejs generyczny, więcej o nich w późniejszych rozdziałach.
-Spotify posiada bardzo dobrą dokumentację, może być pomocna przy budowie interfejsu: https://developer.spotify.com/web-api/search-item/
+- Aby opisać `Promise` użyj `Promise<...>`, gdzie `...` to nazwa twojego interfejsu. `Promise` to interfejs generyczny, więcej o nich w późniejszych rozdziałach.
+- Spotify posiada bardzo dobrą dokumentację, może być pomocna przy budowie interfejsu: https://developer.spotify.com/web-api/search-item/
