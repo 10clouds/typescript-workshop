@@ -5,11 +5,19 @@ const {Howl, Howler} = require('howler');
 
 Howler.volume(0.1);
 
-export class Player extends Component<any, any> {
-  static activePlayer: any;
-  howl: any;
+interface PlayerProps {
+  src: string;
+}
 
-  constructor(props: any) {
+interface PlayerState {
+  isPlaying: boolean;
+}
+
+export class Player extends Component<PlayerProps, PlayerState> {
+  static activePlayer: Player;
+  private howl: Howl;
+
+  constructor(props: PlayerProps) {
     super(props);
 
     this.state = {
