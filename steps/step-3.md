@@ -26,7 +26,7 @@ interface Clock {
 }
 const clock: Clock = {
    currentTime: new Date,
-   setTime: function (date: Date) {
+   setTime: function (date) {
        this.currentTime = date;
    },
 }
@@ -34,11 +34,12 @@ const clock: Clock = {
 
 ## Funkcje
 ```ts
-interface SearchFunc {
-    (source: string, subString: string): boolean;
+interface ScaleImgAsync {
+    (base64input: string, callback: (string) => void): void;
+//                                  ^ deklaracja inline interfejsu funkcji
 }
-const search: SearchFunc = function (source: string, subString: string) {
-    return source.includes(subString);
+const search: ScaleImgAsync = function (input: string, callback: (string) => void): void {
+    callback(scaledBase64);
 }
 ```
 
