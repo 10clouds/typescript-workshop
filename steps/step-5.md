@@ -32,6 +32,6 @@ interface Summable {
 function summableUtil<T extends Summable>(): T { ... }
 ```
 
-## Do zrobienia
+## Zadanie
 
-- spróbuj stworzyć generyczny interfejs dla obiektu stronnicowania (paging object) będącego częścią odpowiedzi z API spotify w `src/trackSearch`. Opis tego obiektu znajdziesz tutaj: https://developer.spotify.com/web-api/object-model/#paging-object
+Stwórz generyczny interfejs dla obiektu stronnicowania będącego częścią odpowiedzi z API spotify w `src/trackSearch`.
