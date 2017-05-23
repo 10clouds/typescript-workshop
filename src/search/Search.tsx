@@ -5,8 +5,14 @@ import {TrackSearch} from './trackSearch';
 import {TrackList} from './TrackList';
 import {Pagination} from './Pagination';
 import {Direction} from './trackSearch';
+import {Track} from './trackSearch';
 
-export class Search extends Component<any, any> {
+interface SearchState {
+  query: string;
+  results: Track[];
+}
+
+export class Search extends Component<{}, SearchState> {
   searchTracks = new TrackSearch();
 
   constructor() {
@@ -26,14 +32,21 @@ export class Search extends Component<any, any> {
     this.updateResults(this.state.query);
   }
 
-  queryChanged(event: any) {
+  queryChanged(event: React.ChangeEvent<HTMLInputElement>) {
     const query = event.target.value;
     this.setState({query});
     this.updateResults(query);
   }
 
   async updateResults(query: string, direction?: Direction) {
-    if (!query) {
+    if (query) {
+      const data = await this.searchTracks.search(query, direction);
+      const results = data.tracks.items;
+
+      this.setState(
+        (state) => state.query === query ? {results} : {}
+      );
+    } else {
       this.setState({results: []});
       return;
     }

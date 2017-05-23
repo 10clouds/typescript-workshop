@@ -1,6 +1,5 @@
 import {buildUrl} from '../utils/urls';
 
-const baseUrl = `https://spotify-proxy-workshop.herokuapp.com/search`;
 export type Direction = 1|-1;
 
 interface SpotifyObject {
@@ -20,7 +19,7 @@ interface Album extends SpotifyObject {
   images: Image[];
 }
 
-interface Track extends SpotifyObject {
+export interface Track extends SpotifyObject {
   preview_url: string;
   album: Album;
   artists: Artist[];
@@ -42,11 +41,11 @@ interface SearchData {
   tracks: Tracks;
 }
 
-const baseUrl = `https://api.spotify.com/v1/search`;
-
 export class TrackSearch {
-  previousUrl: string;
+  static readonly baseUrl = `https://spotify-proxy-workshop.herokuapp.com/search`;
+
   nextUrl: string;
+  previousUrl: string;
 
   async search(query: string, direction?: Direction): Promise<SearchData> {
     let url;
@@ -63,7 +62,7 @@ export class TrackSearch {
 
       url = directionUrl;
     } else {
-      url = buildUrl(baseUrl, {
+      url = buildUrl(TrackSearch.baseUrl, {
         q: query,
         type: 'track',
         limit: 12,
@@ -83,7 +82,7 @@ export class TrackSearch {
     return !!this.paginationUrl(direction);
   }
 
-  paginationUrl(direction: Direction) {
+  private paginationUrl(direction: number) {
     switch (direction) {
       case 1:
         return this.nextUrl;
