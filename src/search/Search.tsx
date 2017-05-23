@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Component} from 'react';
 
-import {TrackSearch} from './trackSearch';
+import {SpotifySearch, Direction, Track} from './spotifySearch';
 import {TrackList} from './TrackList';
 import {Pagination} from './Pagination';
 import {Direction} from './trackSearch';
@@ -14,7 +14,7 @@ interface SearchState {
 }
 
 export class Search extends Component<{}, SearchState> {
-  searchTracks = new TrackSearch();
+  spotifySearch = new SpotifySearch();
 
   constructor() {
     super();
@@ -64,7 +64,7 @@ export class Search extends Component<{}, SearchState> {
       return true;
     }
 
-    return !this.searchTracks.hasDirection(direction);
+    return !this.spotifySearch.hasDirection(direction);
   }
 
   render() {
@@ -81,10 +81,10 @@ export class Search extends Component<{}, SearchState> {
         </header>
         <TrackList tracks={this.state.results}/>
         <Pagination
-          onNext={() => this.updateResults(this.state.query, 1)}
-          onPrevious={() => this.updateResults(this.state.query, -1)}
-          hideNext={this.isDirectionHidden(1)}
-          hidePrevious={this.isDirectionHidden(-1)}
+          onNext={() => this.updateResults(this.state.query, Direction.Next)}
+          onPrevious={() => this.updateResults(this.state.query, Direction.Previous)}
+          hideNext={this.isDirectionHidden(Direction.Next)}
+          hidePrevious={this.isDirectionHidden(Direction.Previous)}
         />
       </div>
     );
