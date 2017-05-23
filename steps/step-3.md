@@ -89,7 +89,7 @@ interface Author extends BaseObject {
 ## Do zrobienia
 Część definicji w stworzonych interfejsach się powtarza. Stwórz bazowe komponenty `SpotifyObject` oraz `SpotifyPagination`. Wykorzystaj je do rozszerzenia innych na podstawie diagramu.
 
-![Diagram](https://raw.githubusercontent.com/10clouds/typescript-workshop/master/steps/assets/api-interface-diagram-1.png)
+![Diagram](https://raw.githubusercontent.com/10clouds/typescript-workshop/master/steps/assets/api-interface-diagram-2.png)
 
 ## Anonimowe interfejsy
 
