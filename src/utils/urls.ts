@@ -1,4 +1,4 @@
-export function buildQueryString(params: any): string {
+export function buildQueryString(params: object): string {
   return Object.keys(params)
     .map((key) => [key, params[key]])
     .map((pair) => pair.map(encodeURIComponent))
@@ -6,6 +6,6 @@ export function buildQueryString(params: any): string {
     .join('&');
 }
 
-export function buildUrl(baseUrl: string, params: any): string {
+export function buildUrl(baseUrl: string, params: object): string {
   return `${baseUrl}?${buildQueryString(params)}`;
 }
