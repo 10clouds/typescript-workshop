@@ -25,7 +25,7 @@ interface Clock {
     setTime(d: Date): void;
 }
 const clock: Clock = {
-   currentTime = new Date,
+   currentTime: new Date,
    setTime: function (date: Date) {
        this.currentTime = date;
    },
