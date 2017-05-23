@@ -99,3 +99,17 @@ export interface Artist extends SpotifyObject {
   type: string;
   name: string;
 }
+
+export function isTrack(obj: SpotifyObject): obj is Track {
+  return obj.type === 'track';
+}
+
+function testIsTrack(objects: SpotifyObject[]) {
+  objects.forEach((obj) => {
+    if (isTrack(obj)) {
+      console.log(obj.type, obj.name, obj.preview_url);
+    } else {
+      console.log(obj.type, obj.name);
+    }
+  });
+}
