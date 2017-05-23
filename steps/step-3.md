@@ -102,3 +102,5 @@ function printLabel(labelledObj: { label: string }) { ... }
 ## Tips
 - Aby opisać `Promise` użyj `Promise<...>`, gdzie `...` to nazwa twojego interfejsu. `Promise` to interfejs generyczny, więcej o nich w późniejszych rozdziałach.
 - Spotify posiada bardzo dobrą dokumentację, może być pomocna przy budowie interfejsu: https://developer.spotify.com/web-api/search-item/
+
+## [Krok 4: Klasy ➜](./step-4.md)

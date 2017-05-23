@@ -192,3 +192,5 @@ export class Counter extends React.Component<CounterProps, CounterState> {
     - `Search` (`src/search/Search.jsx`)
     - `Pagination` (`src/search/Pagination.jsx`)
 - wykorzystaj właściwość `readonly` oraz modyfikatory dostępu w klasie `TrackSearch` (`src/search/trackSearch.ts`)
+
+## [Krok 5: Generyczne typy ➜](./step-5.md)

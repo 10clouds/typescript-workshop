@@ -64,3 +64,5 @@ Można również spotkać starszą składnię `<HTMLElement>findElement()`, jedn
 ## Dodatkowe materiały
 
 - Dodatkowe informacje o działaniu `type inference`: https://www.typescriptlang.org/docs/handbook/type-inference.html
+
+## [Krok 3: Interfejsy ➜](./step-3.md)

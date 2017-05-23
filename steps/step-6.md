@@ -174,3 +174,5 @@ function logMessage(message: Message) {
 
 Dodaj type guards dla interfejsu `Track`, tak aby można było sprawdzić czy dany
 obiekt jest utworem w przypadku, gdy tablica posiada obiekty typu `SpotifyObject`.
+
+## [Krok 7: Definicje typów dla bibliotek ➜](./step-7.md)

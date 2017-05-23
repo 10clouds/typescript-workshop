@@ -1,4 +1,4 @@
-# Krok 5: Typy generyczne
+# Krok 5: Generyczne typy
 
 Sposoby definiowania typów, które do tej pory przedstawiliśmy nie radzą sobie dobrze z uogólnianiem funkcjonalności niezależnie od typu danych. Weźmy jako przykład `Promise`. Przypuśćmy, że jego definicja wyglądałaby tak:
 
@@ -109,3 +109,5 @@ Poza `Promise<T>` i `React.Component<P, S>` korzystaliśmy już z innego generyk
 ## Zadanie
 
 Stwórz generyczny interfejs dla obiektu stronnicowania będącego częścią odpowiedzi z API spotify w `src/trackSearch`.
+
+## [Krok 6: Zaawansowane typy ➜](./step-6.md)

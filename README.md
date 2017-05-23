@@ -26,7 +26,7 @@ webpack.config.js - konfiguracja webpacka
 2. [Proste typy](steps/step-2.md)
 3. [Interfejsy](steps/step-3.md)
 4. [Klasy](steps/step-4.md)
-5. [Generyczne interfejsy](steps/step-5.md)
+5. [Generyczne typy](steps/step-5.md)
 6. [Zaawansowane typy](steps/step-6.md)
 7. [Definicje typów dla bibliotek](steps/step-7.md)
 
