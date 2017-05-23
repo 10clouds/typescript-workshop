@@ -20,7 +20,7 @@ class GenericClass<T, U> { ... }
 function genericFn<T>(arg: T): T[] { ... }
 ```
 
-## Organiczenia
+## Ograniczenia
 
 Przekazywane typy można ograniczać. W poniższym przykładzie akceptowane są tylko typy posiadające pole `sum`.
 
