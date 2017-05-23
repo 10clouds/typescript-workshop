@@ -6,7 +6,7 @@ export class TrackSearch {
   nextUrl;
   previousUrl;
 
-  async search(query, direction) {
+  async search(query: string, direction?: number): Promise<SearchData> {
     let url;
 
     if (direction) {
@@ -29,7 +29,7 @@ export class TrackSearch {
     }
 
     const response = await fetch(url);
-    const data = await response.json();
+    const data = await response.json() as SearchData;
 
     this.nextUrl = data.tracks.next;
     this.previousUrl = data.tracks.previous;
@@ -49,4 +49,44 @@ export class TrackSearch {
         return this.previousUrl;
     }
   }
+}
+
+export interface SearchData {
+  tracks: Tracks;
+}
+
+export interface Tracks {
+  items: Track[];
+  next: string;
+  previous: string;
+}
+
+export interface Track {
+  id: string;
+  type: string;
+  name: string;
+
+  preview_url: string;
+
+  album: Album;
+  artists: Artist[];
+}
+
+export interface Album {
+  id: string;
+  type: string;
+  name: string;
+  images: Image[];
+}
+
+export interface Image {
+  url: string;
+  width: number;
+  height: number;
+}
+
+export interface Artist {
+  id: string;
+  type: string;
+  name: string;
 }
