@@ -57,8 +57,8 @@ export interface SpotifyObject {
   name: string;
 }
 
-export interface SpotifyPagination {
-  items: SpotifyObject[];
+export interface SpotifyPagination<T extends SpotifyObject> {
+  items: T[];
   next: string;
   previous: string;
 }
@@ -67,9 +67,7 @@ export interface SearchData {
   tracks: Tracks;
 }
 
-export interface Tracks extends SpotifyPagination {
-  items: Track[];
-}
+export type Tracks = SpotifyPagination<Track>;
 
 export interface Track extends SpotifyObject {
   preview_url: string;
