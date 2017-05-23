@@ -1,10 +1,10 @@
 import {buildUrl} from '../utils/urls';
 
-const baseUrl = `https://api.spotify.com/v1/search`;
-
 export class TrackSearch {
-  nextUrl;
-  previousUrl;
+  private static readonly baseUrl = `https://api.spotify.com/v1/search`;
+
+  private nextUrl?: string;
+  private previousUrl?: string;
 
   async search(query: string, direction?: number): Promise<SearchData> {
     let url;
@@ -21,7 +21,7 @@ export class TrackSearch {
 
       url = directionUrl;
     } else {
-      url = buildUrl(baseUrl, {
+      url = buildUrl(TrackSearch.baseUrl, {
         q: query,
         type: 'track,artist',
         limit: 12,
