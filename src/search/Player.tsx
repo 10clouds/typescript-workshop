@@ -1,10 +1,23 @@
-import React from 'react';
+import * as React from 'react';
 import {Component} from 'react';
 import {Howl, Howler} from 'howler';
 
 Howler.volume(0.1);
 
-export class Player extends Component {
+export namespace Player {
+  export interface Props {
+    src: string;
+  }
+  export interface State {
+    isPlaying: boolean;
+  }
+}
+
+export class Player extends Component<Player.Props, Player.State> {
+  private static activePlayer: Player;
+
+  private howl: Howl;
+
   constructor(props) {
     super(props);
 
@@ -13,7 +26,6 @@ export class Player extends Component {
     };
 
     this.toggle = this.toggle.bind(this);
-    this.activePlayer = null;
     this.howl = new Howl({
       src: [props.src],
       autoplay: false,
