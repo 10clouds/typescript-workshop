@@ -71,6 +71,8 @@ const squares: Square[] = [...];
 ## Zadanie
 Opisz typ zwracanych danych w metodzie `search()` pliku `search/trackSearch.js` korzystając z interfejsów. Poniżej znajdziesz ich diagram.
 
+Podpowiedź: do opisania `Promise` użyj `Promise<...>`, gdzie `...` to nazwa twojego interfejsu. `Promise` to interfejs generyczny, więcej o nich w późniejszych rozdziałach.
+
 ![Diagram](https://raw.githubusercontent.com/10clouds/typescript-workshop/master/steps/assets/api-interface-diagram-1.png)
 
 
@@ -98,9 +100,5 @@ Interfejsy nie muszą być deklarowane ze słowem kluczowym. Jeżeli nie ma potr
 ```ts
 function printLabel(labelledObj: { label: string }) { ... }
 ```
-
-## Tips
-- Aby opisać `Promise` użyj `Promise<...>`, gdzie `...` to nazwa twojego interfejsu. `Promise` to interfejs generyczny, więcej o nich w późniejszych rozdziałach.
-- Spotify posiada bardzo dobrą dokumentację, może być pomocna przy budowie interfejsu: https://developer.spotify.com/web-api/search-item/
 
 ## [Krok 4: Klasy ➜](./step-4.md)
