@@ -1,4 +1,6 @@
-export function buildQueryString(params) {
+export function buildQueryString(params: object) {
+  const foo = params['foo'];
+
   return Object.keys(params)
     .map((key) => [key, params[key]])
     .map((pair) => pair.map(encodeURIComponent))
@@ -6,6 +8,6 @@ export function buildQueryString(params) {
     .join('&');
 }
 
-export function buildUrl(baseUrl, params) {
+export function buildUrl(baseUrl: string, params: object) {
   return `${baseUrl}?${buildQueryString(params)}`;
 }
