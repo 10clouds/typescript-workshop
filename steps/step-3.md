@@ -33,6 +33,7 @@ const clock: Clock = {
 ```
 
 ## Funkcje
+
 ```ts
 interface ScaleImgAsync {
     (base64input: string, callback: (string) => void): void;
@@ -44,6 +45,7 @@ const search: ScaleImgAsync = function (input: string, callback: (string) => voi
 ```
 
 ## Słowniki
+
 ```ts
 interface MonthMap {
     [month: string]: Date;
@@ -66,6 +68,12 @@ function makeSquare(type: string): Square { ... }
 const squares: Square[] = [...];
 ```
 
+## Zadanie
+Opisz typ zwracanych danych w metodzie `search()` pliku `search/trackSearch.js` korzystając z interfejsów. Poniżej znajdziesz ich diagram.
+
+![Diagram](https://raw.githubusercontent.com/10clouds/typescript-workshop/master/steps/assets/api-interface-diagram-1.png)
+
+
 ## Rozszerzanie
 
 Interfejsy mogą dziedziczyć po sobie. Mechanizm działa tak samo, jak w przypadku klas - definicje pól zostaną przepisane do nowego interfejsu.
@@ -78,6 +86,11 @@ interface Author extends BaseObject {
 }
 ```
 
+## Do zrobienia
+Część definicji w stworzonych interfejsach się powtarza. Stwórz bazowe komponenty `SpotifyObject` oraz `SpotifyPagination`. Wykorzystaj je do rozszerzenia innych na podstawie diagramu.
+
+![Diagram](https://raw.githubusercontent.com/10clouds/typescript-workshop/master/steps/assets/api-interface-diagram-1.png)
+
 ## Anonimowe interfejsy
 
 Interfejsy nie muszą być deklarowane ze słowem kluczowym. Jeżeli nie ma potrzeby reużywania interfejsu można zadeklarować go w miejscu wykorzystania.
@@ -85,11 +98,6 @@ Interfejsy nie muszą być deklarowane ze słowem kluczowym. Jeżeli nie ma potr
 ```ts
 function printLabel(labelledObj: { label: string }) { ... }
 ```
-
-## Do zrobienia
-- opisz typ zwracanych danych korzystając z interfejsów w metodzie `search()` pliku `search/trackSearch.js`. Poniżej znajdziesz diagram z przykładową strukturą interfejsów:
-
-![Diagram](https://raw.githubusercontent.com/10clouds/typescript-workshop/master/steps/assets/api-interface-diagram.png)
 
 ## Tips
 - Aby opisać `Promise` użyj `Promise<...>`, gdzie `...` to nazwa twojego interfejsu. `Promise` to interfejs generyczny, więcej o nich w późniejszych rozdziałach.
