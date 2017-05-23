@@ -41,12 +41,6 @@ interface SearchData {
   artists?: SpotifyPagination<Album>;
 }
 
-interface SearchParams {
-  q: string;
-  type: 'album' | 'artist' | 'track',
-  limit?: number,
-}
-
 export enum Direction {
   Next = 1,
   Previous = -1,
