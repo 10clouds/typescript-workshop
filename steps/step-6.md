@@ -38,51 +38,6 @@ interface TaggedPerson {
 }
 ```
 
-Przecięć używa się przede wszystkim podczas pracy z mixin'ami, klasami,
-które same nie mają prawa bytu, ale mogą wzbogacać inne klasy.
-
-```ts
-class HideableMixin {
-    isVisible = true;
-    show() { this.isVisible = true; }
-    hide() { this.isVisible = false; }
-}
-
-class Sidebar { 
-    items: string[];
-}
-
-const HideableSidebar = mix(Sidebar, HideableMixin);
-const sidebar = new HideableSidebar();
-sidebar.items = ['one', 'two', 'three'];
-sidebar.hide();
-```
-
-Aby to osiągnąć funkcja `mix` mogłaby wyglądać na przykłąd tak:
-
-```ts
-interface Constructor<T> {
-    new (): T
-}
-
-function mix<B, M>(
-    base: Constructor<B>, 
-    mixin: Constructor<M>,
-): Constructor<B & M> {
-    function Mixed() {
-        base.call(this);
-        mixin.call(this);
-    }
-    
-    Mixed.prototype = Object.assign(
-        Object.create(base.prototype),
-        mixin.prototype,
-    );
-
-    return (Mixed as any) as Constructor<B & M>;
-}
-```
-
 ### Unia `A | B`
 
 Unia tworzy typ, do którego można przypisać dowolny z wymienionych.
@@ -159,7 +114,7 @@ i artystów.
 
 ## Type guard
 
-Czasem kiedy używamy unii lub dziedziczenia zdaża się, że potrzebujemy
+Czasem kiedy używamy unii lub dziedziczenia zdarza się, że potrzebujemy
 wykonać pewną logikę tylko dla konkretnego typu, ale sprawdzenie czy
 dana zmienna jest tego typu jest bardziej skomplikowane niż użycie operatora
 `typeof` czy `instanceof`. W tych przypadkach przydają się strażnicy typów (?), 
@@ -217,5 +172,5 @@ function logMessage(message: Message) {
 
 ### Zadanie
 
-Dodaj type guards dla różnych typów danych zwracanych przez spotify, tak
-aby można było sprawdzić czy dany obiekt jest artystą, albumem czy artystą.
+Dodaj type guards dla interfejsu `Track`, tak aby można było sprawdzić czy dany
+obiekt jest utworem w przypadku, gdy tablica posiada obiekty typu `SpotifyObject`.
