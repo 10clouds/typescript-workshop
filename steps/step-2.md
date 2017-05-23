@@ -15,13 +15,16 @@ class Pet {
 ```
 
 Oto podstawowe typy, które możesz wykorzystać w TypeScript:
-- boolean
-- null
-- undefined
-- number
-- string
-- symbol
-- object
+
+```ts
+const a: boolean = true
+const b: number = 1
+const c: string = 'foo';
+const d: null = null;
+const e: undefined = undefined;
+const f: symbol = Symbol();
+const g: object = {foo: 1};
+```
 
 ## Tablice
 
