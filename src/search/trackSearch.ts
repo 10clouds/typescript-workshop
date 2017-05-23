@@ -51,31 +51,34 @@ export class TrackSearch {
   }
 }
 
-export interface SearchData {
-  tracks: Tracks;
+export interface SpotifyObject {
+  id: string;
+  type: string;
+  name: string;
 }
 
-export interface Tracks {
-  items: Track[];
+export interface SpotifyPagination {
+  items: SpotifyObject[];
   next: string;
   previous: string;
 }
 
-export interface Track {
-  id: string;
-  type: string;
-  name: string;
+export interface SearchData {
+  tracks: Tracks;
+}
 
+export interface Tracks extends SpotifyPagination {
+  items: Track[];
+}
+
+export interface Track extends SpotifyObject {
   preview_url: string;
 
   album: Album;
   artists: Artist[];
 }
 
-export interface Album {
-  id: string;
-  type: string;
-  name: string;
+export interface Album extends SpotifyObject {
   images: Image[];
 }
 
@@ -85,7 +88,7 @@ export interface Image {
   height: number;
 }
 
-export interface Artist {
+export interface Artist extends SpotifyObject {
   id: string;
   type: string;
   name: string;
