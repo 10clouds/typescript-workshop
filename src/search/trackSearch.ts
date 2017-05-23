@@ -21,11 +21,13 @@ export class TrackSearch {
 
       url = directionUrl;
     } else {
-      url = buildUrl(TrackSearch.baseUrl, {
+      const params: SearchParams = {
         q: query,
-        type: 'track,artist',
+        type: 'track',
         limit: 12,
-      });
+      };
+
+      url = buildUrl(TrackSearch.baseUrl, params);
     }
 
     const response = await fetch(url);
@@ -65,6 +67,12 @@ export interface SpotifyPagination<T extends SpotifyObject> {
 
 export interface SearchData {
   tracks: Tracks;
+}
+
+export interface SearchParams {
+  q: string;
+  type: 'album' | 'artist' | 'track';
+  limit?: number;
 }
 
 export type Tracks = SpotifyPagination<Track>;
