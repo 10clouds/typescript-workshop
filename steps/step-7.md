@@ -316,4 +316,4 @@ w [dokumentacji TypeScript][.d.ts authoring guide]
 [glob patterns]: https://github.com/isaacs/node-glob#glob-primer
 [.d.ts authoring guide]: https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html
 
-## [Krok 7: Trening ➜](./step-8.md)
+## [Krok 8: Więcej ➜](./step-8.md)
