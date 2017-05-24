@@ -23,7 +23,7 @@ export class TrackSearch {
     } else {
       url = buildUrl(baseUrl, {
         q: query,
-        type: 'track,artist',
+        type: 'track',
         limit: 12,
       });
     }
