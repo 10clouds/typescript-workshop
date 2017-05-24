@@ -22,6 +22,7 @@ webpack.config.js - konfiguracja webpacka
 ```
 
 ## Kroki
+0. [O TypeScript](steps/step-0.md)
 1. [Babel -> TypeScript](steps/step-1.md)
 2. [Proste typy](steps/step-2.md)
 3. [Interfejsy](steps/step-3.md)
