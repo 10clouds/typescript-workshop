@@ -36,10 +36,10 @@ const clock: Clock = {
 
 ```ts
 interface ScaleImgAsync {
-    (base64input: string, callback: (string) => void): void;
+    (base64input: string, callback: (output: string) => void): void;
 //                                  ^ deklaracja inline interfejsu funkcji
 }
-const search: ScaleImgAsync = function (input: string, callback: (string) => void): void {
+const search: ScaleImgAsync = function (input: string, callback: (output: string) => void): void {
     callback(scaledBase64);
 }
 ```
