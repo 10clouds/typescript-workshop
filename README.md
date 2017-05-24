@@ -29,7 +29,7 @@ webpack.config.js - konfiguracja webpacka
 5. [Generyczne typy](steps/step-5.md)
 6. [Zaawansowane typy](steps/step-6.md)
 7. [Definicje typów dla bibliotek](steps/step-7.md)
-8. [Trening](steps/step-8.md)
+8. [Więcej](steps/step-8.md)
 
 ## Rozwiązania
 Rozwiązania krok po kroku dostępne są na gałęziach `step-x`, gdzie `x` to numer
