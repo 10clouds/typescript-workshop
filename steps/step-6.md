@@ -108,9 +108,11 @@ function addEventListener(
 
 ### Zadanie
 
-Zmień interface opisujący wyszukiwanie w spotify tak, aby możliwe było
-jedynie przeszukiwanie akceptowalnych typów danych: albumów, utworów
-i artystów.
+Dodaj możliwość wyszukiwania dodatkowych typów obiektów w metodzie `search()` klasy `trackSearch`:
+- dodaj opcjonalny parametr `type` pozwalający na wybranie wyszukiwanego obiektu, gdzie jego
+    - typ to unia literałów `track`, `playlist`, `artist`, `album`
+    - domyślna wartość to `track`
+- zmień nazwę klasy na `Search` korzystając z opcji `Rename Symbol` w VSCode
 
 ## Type guard
 
