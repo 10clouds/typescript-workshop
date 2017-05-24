@@ -165,7 +165,7 @@ function addEventListener(
 
 Dodaj możliwość wyszukiwania dodatkowych typów obiektów w metodzie `search()` klasy `trackSearch`:
 - dodaj opcjonalny parametr `type` pozwalający na wybranie wyszukiwanego obiektu, gdzie jego
-    - typ to unia literałów `track`, `playlist`, `artist`, `album`
+    - typ to unia literałów `track`, `artist`, `album`
     - domyślna wartość to `track`
 - zmień nazwę klasy na `Search` korzystając z opcji `Rename Symbol` w VSCode
 
