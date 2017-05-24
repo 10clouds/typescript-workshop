@@ -2,7 +2,7 @@
 
 W poprzednich krokach zrefaktorowaliśmy tylko część aplikacji. Dzięki wiedzy poznanej na warsztatach możesz dokończyć ten proces. Ponadto poniżej znajdziesz kilka dodatkowych zadań polegających na dodaniu pewnych funkcjonalności aplikacji, które pozwolą Ci lepiej poznać TypeScript:
 
-- włącz tryb `strict: true` w opcjach kompilatora (`tsconfig.json`):
+- włącz tryb `strict` w opcjach kompilatora (`tsconfig.json`):
     
     ```json
     {
