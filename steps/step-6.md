@@ -167,7 +167,7 @@ Dodaj możliwość wyszukiwania dodatkowych typów obiektów w metodzie `search(
 - dodaj opcjonalny parametr `type` pozwalający na wybranie wyszukiwanego obiektu, gdzie jego
     - typ to unia literałów `track`, `artist`, `album`
     - domyślna wartość to `track`
-- zmień nazwę klasy na `Search` korzystając z opcji `Rename Symbol` w VSCode
+- zmień nazwę klasy na `SpotifySearch` korzystając z opcji `Rename Symbol` w VSCode
 
 ## Type guard
 
