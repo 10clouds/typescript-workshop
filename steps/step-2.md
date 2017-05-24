@@ -53,7 +53,7 @@ To zachowanie można zmienić używając flagi `"noImplicitAny": true` w opcjach
 Możemy nadpisać typ używając słowa kluczowego `as`. Ten zabieg powinien być stosowany tylko w ostateczności. Jeden z niewielu przypadków, gdzie może okazać się przydatny to łączenie (chain) funkcji, które jest skomplikowane do zadeklarowania w TypeScript.
 
 ```ts
-const foo = [...].filter(...).reduce(...) as Foo;
+const foo = _([...]).transform(...).zipObject(...).value() as Foo;
 ```
 Można również spotkać starszą składnię `<HTMLElement>findElement()`, jednak nie jest ona zalecana, głównie ze względu niekompatybilność z plikami JSX.
 
