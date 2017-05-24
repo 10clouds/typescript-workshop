@@ -107,7 +107,8 @@ type NumberPromise = Promise<number>;
 Poza `Promise<T>` i `React.Component<P, S>` korzystaliśmy już z innego generyka `Array<T>`, znanego także jako `T[]`.
 
 ## Zadanie
-
-Stwórz generyczny interfejs dla obiektu stronnicowania będącego częścią odpowiedzi z API spotify w `src/trackSearch`.
+- stwórz generyczny interfejs dla obiektu stronnicowania będącego częścią odpowiedzi z API spotify w `src/trackSearch`
+- dodaj w interfejsie zwracanym przez metodę `search()` pola `albums` i `artists` korzystając z generycznego interfejsu stworzonego wcześniej
+- pola `tracks`, `albums` i `artists` oznacz jako opcjonalne - API spotify zwraca odpowiednie klucze w zależności od przekazanego `type`, który będziemy parametryzować w następnym kroku
 
 ## [Krok 6: Zaawansowane typy ➜](./step-6.md)
