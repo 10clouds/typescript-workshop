@@ -14,7 +14,7 @@ W poprzednich krokach zrefaktorowaliśmy tylko część aplikacji. Dzięki wiedz
     }
     ```
     
-    TypeScript będzie informować Cię o większej liczbie potencjalnych błędów. Jeżeli w konsoli zobaczysz dodatkowe błędy, postaraj się je wyeliminować.
+    TypeScript będzie informować Cię o większej liczbie potencjalnych błędów. Jeżeli w konsoli zobaczysz dodatkowe błędy, postaraj się je rozwiązać.
 
 - dodaj blokowanie przycisków paginacji w czasie oczekiwania na odpowiedź z API spotify po kliknięciu, aby uniknąć wyścigu zapytań, gdy użytkownik kilka razy kliknie, np. `Next`
 
