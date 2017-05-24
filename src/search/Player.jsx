@@ -13,7 +13,6 @@ export class Player extends Component {
     };
 
     this.toggle = this.toggle.bind(this);
-    this.activePlayer = null;
     this.howl = new Howl({
       src: [props.src],
       autoplay: false,
