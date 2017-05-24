@@ -134,10 +134,9 @@ declare module 'react' {
 
 #### Zadanie
 
-Dodaj `Howler.volume()` do deklaracji modułu `howler`.
+Dodaj `Howler.volume()` do deklaracji modułu [`howler`][howler-gh].
 
-Dodaj klasę `Howl` do deklaracji modułu `howler` uwzględniając tylko
-wykorzystywane części jej interface'u:
+Dodaj klasę `Howl` do deklaracji modułu `howler` uwzględniając tylko wykorzystywane części jej interface'u:
 
 - `new Howl({src, autoplay, preload, format})`
 - `Howl.state()`
@@ -145,6 +144,73 @@ wykorzystywane części jej interface'u:
 - `Howl.play()`
 - `Howl.playing()`
 - `Howl.stop()`
+
+Poniżej zamieszczamy uproszczoną dokumentację [`howler`][howler-gh]:
+
+> # Description
+> [howler.js](https://howlerjs.com) is an audio library for the modern web. It defaults to [Web Audio API](http://webaudio.github.io/web-audio-api/) and falls back to [HTML5 Audio](https://html.spec.whatwg.org/multipage/embedded-content.html#the-audio-element). This makes working with audio in JavaScript easy and reliable across all platforms.
+> 
+> Additional information, live demos and a user showcase are available at [howlerjs.com](https://howlerjs.com).
+>
+> ### Examples
+> 
+> ```js
+> // import Howl class and the global Howler object
+> const {Howl, Howler} = require('howler');
+>
+> // set the global volume
+> Howler.volume(0.5);
+>
+> // create a sound from sound.mp3
+> const sound = new Howl({
+>   src: ['sound.mp3']
+> });
+> 
+> // start playing the sound
+> sound.play();
+> ```
+> 
+> ## Core
+> 
+> ### Options
+> 
+> #### src `Array` `[]` *`required`*
+> The sources to the track(s) to be loaded for the sound (URLs or base64 data URIs). These should be in order of preference, howler.js will automatically load the first one that is compatible with the current browser. If your files have no extensions, you will need to explicitly specify the extension using the `format` property.
+> 
+> #### volume `Number` `1.0`
+> The volume of the specific track, from `0.0` to `1.0`.
+> 
+> #### preload `Boolean` `true`
+> Automatically begin downloading the audio file when the `Howl` is defined.
+> 
+> #### autoplay `Boolean` `false`
+> Set to `true` to automatically start playback when sound is loaded.
+> 
+> #### format `Array` `[]`
+> howler.js automatically detects your file format from the extension, but you may also specify a format in situations where extraction won't work (such as with a SoundCloud stream).
+> 
+> ### Methods
+> #### play()
+> Begins playback of a sound.
+> 
+> #### stop()
+> Stops playback of a sound, resetting `seek` to `0`.
+> 
+> #### state()
+> Check the load status of the `Howl`, returns a `unloaded`, `loading` or `loaded`.
+> 
+> #### playing()
+> Check if a sound is currently playing or not, returns a `Boolean`.
+> 
+> #### load()
+> This is called by default, but if you set `preload` to false, you must call `load` before you can play any sounds.
+> 
+> ### Global Methods
+> The following methods are used to modify all sounds globally, and are called from the `Howler` object.
+> 
+> #### volume([volume])
+> Get/set the global volume for all sounds, relative to their own volume.
+> * **volume**: `Number` `optional` Volume from `0.0` to `1.0`.
 
 ### Dokumentacja
 
@@ -229,7 +295,7 @@ declare module 'react' {
 
 #### Zadanie
 
-Dodaj JSDoc do elementów modułu `howler`.
+Dodaj JSDoc do elementów modułu `howler` bazując na powyższej dokumentacji.
 
 
 Więcej informacji na temat pisania deklaracji możecie znaleźć 
@@ -245,6 +311,7 @@ w [dokumentacji TypeScript][.d.ts authoring guide]
 [lodash]: https://www.npmjs.com/package/lodash
 [@types/lodash]: https://www.npmjs.com/package/@types/lodash
 [howler]: https://www.npmjs.com/package/howler
+[howler-gh]: https://github.com/goldfire/howler.js
 [@types/howler]: https://www.npmjs.com/package/@types/howler
 [glob patterns]: https://github.com/isaacs/node-glob#glob-primer
 [.d.ts authoring guide]: https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html
