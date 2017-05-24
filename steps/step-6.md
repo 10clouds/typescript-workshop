@@ -4,6 +4,61 @@ Najczęściej używane deklaracje typów już mamy za sobą, czasem jednak
 nie wystarczą one do precyzyjnego opisania pewnych funkcji co
 pozwalałoby prześlizgnąć się niektórym błędom. 
 
+## Enum
+
+Enumy pozwalają na zdefiniowanie zestawów stałych numerycznych, co jest przydatne jeśli chcemy zapewnić, że wartość będzie jedną z kilku akceptowalnych.
+
+```ts
+enum Direction {
+    Up,
+    Down,
+    Left,
+    Right,
+}
+```
+
+Domyślnie wartości są nadawane kolejno od 0, czyli w powyższym:
+
+```ts
+Direction.Up    === 0
+Direction.Down  === 1
+Direction.Left  === 2
+Direction.Right === 3
+```
+
+Możemy jednak zmienić w dowolnym miejscu sekwencję, np.:
+
+```ts
+enum Direction {
+    Up = 1,     // 1
+    Down,       // 2
+    Left = 11,  // 11
+    Right,      // 12
+}
+```
+
+Można też wykorzystać enumy do zdefiniowania listy opcji, które potem można łączyć operatorami bitowymi.
+
+```ts
+enum FileAccess {
+    None = 0,
+    Read = 1 << 1,
+    Write = 1 << 2,
+    ReadWrite = Read | Write,
+}
+```
+
+W przeciwieństwie do interface'ów enumy są fizycznymi obiektami, które można wykorzystać w czasie działania aplikacji, np. żeby odzyskać nazwę opcji na podstawie wartości.
+
+```ts
+FileAccess[FileAccess.Read] === 'Read'
+FileAccess[FileAccess.Read | FileAccess.Write] === 'ReadWrite'
+```
+
+### Zadanie
+
+Dodaj enum `Direction`, aby doprecyzować parametr `direction` w `TrackSearch` (`src/search/trackSearch.ts`)
+
 ## Łączenie typów
 
 TypeScript pozwala na zdefiniowanie typu, który reprezentuje połączenie
