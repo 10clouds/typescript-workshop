@@ -1,9 +1,13 @@
 import {buildUrl} from '../utils/urls';
 
 const baseUrl = `https://spotify-proxy-workshop.herokuapp.com/search`;
+export type Direction = 1|-1;
 
 export class TrackSearch {
-  async search(query, direction) {
+  previousUrl: string;
+  nextUrl: string;
+
+  async search(query: string, direction?: Direction) {
     let url;
 
     if (direction) {
@@ -34,11 +38,11 @@ export class TrackSearch {
     return data;
   }
 
-  hasDirection(direction) {
+  hasDirection(direction: Direction) {
     return !!this.paginationUrl(direction);
   }
 
-  paginationUrl(direction) {
+  paginationUrl(direction: Direction) {
     switch (direction) {
       case 1:
         return this.nextUrl;

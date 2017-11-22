@@ -1,10 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 
 import {Track} from './Track';
 
-export function TrackList(props) {
+export function TrackList(props: any) {
   const tracks = props.tracks.map(
-    (track) => (
+    (track: any) => (
       <li key={track.id}>
         <Track data={track}/>
       </li>

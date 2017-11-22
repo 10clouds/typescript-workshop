@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Component } from 'react';
 
-export function Pagination(props) {
+export function Pagination(props: any) {
   return (
     <div className='pagination'>
       <button

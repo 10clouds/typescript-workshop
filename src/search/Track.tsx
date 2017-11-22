@@ -1,13 +1,13 @@
-import React from 'react';
+import * as React from 'react';
 
 import {Player} from './Player';
 
-export function Track(props) {
+export function Track(props: any) {
   const track = props.data;
   const album = props.data.album;
   const albumImage = album.images[1].url;
   const artists = props.data.artists;
-  const artistNames = artists.map((artist) => artist.name).join(', ');
+  const artistNames = artists.map((artist: any) => artist.name).join(', ');
 
   return (
     <div className="track"

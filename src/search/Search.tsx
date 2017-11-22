@@ -1,11 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 import {Component} from 'react';
 
 import {TrackSearch} from './trackSearch';
 import {TrackList} from './TrackList';
-import {Pagination} from "./Pagination";
+import {Pagination} from './Pagination';
+import {Direction} from './trackSearch';
 
-export class Search extends Component {
+export class Search extends Component<any, any> {
   searchTracks = new TrackSearch();
 
   constructor() {
@@ -25,13 +26,13 @@ export class Search extends Component {
     this.updateResults(this.state.query);
   }
 
-  queryChanged(event) {
+  queryChanged(event: any) {
     const query = event.target.value;
     this.setState({query});
     this.updateResults(query);
   }
 
-  async updateResults(query, direction) {
+  async updateResults(query: string, direction?: Direction) {
     if (!query) {
       this.setState({results: []});
       return;
@@ -51,7 +52,7 @@ export class Search extends Component {
     );
   }
 
-  isDirectionHidden(direction) {
+  isDirectionHidden(direction: Direction) {
     if (!this.state.query || this.state.isRequestPending) {
       return true;
     }

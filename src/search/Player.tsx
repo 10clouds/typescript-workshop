@@ -1,11 +1,15 @@
-import React from 'react';
+import * as React from 'react';
 import {Component} from 'react';
-import {Howl, Howler} from 'howler';
+
+const {Howl, Howler} = require('howler');
 
 Howler.volume(0.1);
 
-export class Player extends Component {
-  constructor(props) {
+export class Player extends Component<any, any> {
+  static activePlayer: any;
+  howl: any;
+
+  constructor(props: any) {
     super(props);
 
     this.state = {
@@ -54,7 +58,7 @@ export class Player extends Component {
 
   render() {
     return (
-      <button 
+      <button
         type="button"
         className="play-button"
         onClick={this.toggle}
