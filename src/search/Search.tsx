@@ -4,8 +4,6 @@ import {Component} from 'react';
 import {SpotifySearch, Direction, Track} from './spotifySearch';
 import {TrackList} from './TrackList';
 import {Pagination} from './Pagination';
-import {Direction} from './trackSearch';
-import {Track} from './trackSearch';
 
 interface SearchState {
   query: string;
@@ -47,7 +45,7 @@ export class Search extends Component<{}, SearchState> {
 
     this.setState({isRequestPending: true});
 
-    const data = await this.searchTracks.search(query, direction);
+    const data = await this.spotifySearch.search(query, direction);
     const results = data.tracks!.items;
 
     this.setState(
