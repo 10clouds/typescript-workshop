@@ -27,18 +27,16 @@ export interface Track extends SpotifyObject {
 
 interface Artist extends SpotifyObject { }
 
-interface SpotifyPagination {
-  items: SpotifyObject[];
+interface SpotifyPagination<T> {
+  items: T[];
   next: string;
   previous: string;
 }
 
-interface Tracks extends SpotifyPagination {
-  items: Track[];
-}
-
 interface SearchData {
-  tracks: Tracks;
+  tracks?: SpotifyPagination<Track>;
+  albums?: SpotifyPagination<Artist>;
+  artists?: SpotifyPagination<Album>;
 }
 
 export class TrackSearch {
