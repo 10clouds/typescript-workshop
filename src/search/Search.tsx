@@ -10,6 +10,7 @@ import {Track} from './trackSearch';
 interface SearchState {
   query: string;
   results: Track[];
+  isRequestPending: boolean;
 }
 
 export class Search extends Component<{}, SearchState> {
