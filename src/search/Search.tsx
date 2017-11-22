@@ -48,7 +48,7 @@ export class Search extends Component<{}, SearchState> {
     this.setState({isRequestPending: true});
 
     const data = await this.searchTracks.search(query, direction);
-    const results = data.tracks.items;
+    const results = data.tracks!.items;
 
     this.setState(
       (state) => ({
