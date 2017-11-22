@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {Component} from 'react';
-
-const {Howl, Howler} = require('howler');
+import {Howl, Howler} from 'howler';
 
 Howler.volume(0.1);
 
@@ -14,7 +13,7 @@ interface PlayerState {
 }
 
 export class Player extends Component<PlayerProps, PlayerState> {
-  static activePlayer: Player;
+  static activePlayer?: Player;
   private howl: Howl;
 
   constructor(props: PlayerProps) {
