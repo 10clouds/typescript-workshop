@@ -14,6 +14,7 @@ export class Search extends Component {
     this.state = {
       query: '',
       results: [],
+      isRequestPending: false,
     };
 
     this.queryChanged = this.queryChanged.bind(this);
@@ -31,20 +32,27 @@ export class Search extends Component {
   }
 
   async updateResults(query, direction) {
-    if (query) {
-      const data = await this.searchTracks.search(query, direction);
-      const results = data.tracks.items;
-
-      this.setState(
-        (state) => state.query === query ? {results} : {}
-      );
-    } else {
+    if (!query) {
       this.setState({results: []});
+      return;
     }
+
+    this.setState({isRequestPending: true});
+
+    const data = await this.searchTracks.search(query, direction);
+    const results = data.tracks.items;
+
+    this.setState(
+      (state) => ({
+        // prevent from race when older query takes longer and overrides lastest
+        results: state.query === query ? results : state.results,
+        isRequestPending: false,
+      })
+    );
   }
 
   isDirectionHidden(direction) {
-    if (!this.state.query) {
+    if (!this.state.query || this.state.isRequestPending) {
       return true;
     }
 

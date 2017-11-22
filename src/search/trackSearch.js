@@ -1,6 +1,6 @@
 import {buildUrl} from '../utils/urls';
 
-const baseUrl = `https://api.spotify.com/v1/search`;
+const baseUrl = `https://spotify-proxy-workshop.herokuapp.com/search`;
 
 export class TrackSearch {
   nextUrl;
