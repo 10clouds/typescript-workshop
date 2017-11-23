@@ -40,14 +40,7 @@ export class Search extends Component<{}, SearchState> {
   }
 
   async updateResults(query: string, direction?: Direction) {
-    if (query) {
-      const data = await this.searchTracks.search(query, direction);
-      const results = data.tracks.items;
-
-      this.setState(
-        (state) => state.query === query ? {results} : {}
-      );
-    } else {
+    if (!query) {
       this.setState({results: []});
       return;
     }
