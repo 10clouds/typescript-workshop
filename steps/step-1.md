@@ -76,7 +76,7 @@ To tyle jeśli chodzi o `main.tsx`, rozszerzenia pozostałych plików zmieniaj s
 
 ## Dodatkowa dokumentacja
 
-- Lista opcji kompilera: https://www.typescriptlang.org/docs/handbook/compiler-options.html
+- Lista opcji kompilatora: https://www.typescriptlang.org/docs/handbook/compiler-options.html
 - Dodatkowe informacje o konfiguracji TypeScriptu: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
 
 ## [Krok 2: Proste typy ➜](./step-2.md)
