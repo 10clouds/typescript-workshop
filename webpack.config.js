@@ -6,7 +6,7 @@ const distDir = path.join(__dirname, './dist');
 
 module.exports = {
   entry: {
-    main: ['babel-polyfill', './src/main.jsx'],
+    main: ['babel-polyfill', './src/main.tsx'],
   },
   output: {
     filename: '[name].[hash].js',
