@@ -1,7 +1,15 @@
 import * as React from 'react';
-import { Component } from 'react';
+import { Component, MouseEvent } from 'react';
 
-export function Pagination(props) {
+export interface PaginationProps {
+  hidePrevious?: boolean;
+  hideNext?: boolean;
+
+  onPrevious?: (event: MouseEvent<HTMLButtonElement>) => void;
+  onNext?: (event: MouseEvent<HTMLButtonElement>) => void;
+}
+
+export function Pagination(props: PaginationProps) {
   return (
     <div className='pagination'>
       <button
