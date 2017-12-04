@@ -8,33 +8,34 @@ export interface Image {
   url: string;
 }
 
-export interface Album {
+export interface SpotifyObject {
   id: string;
   type: string;
   name: string;
+}
+
+export interface Album extends SpotifyObject {
   album_type: string;
   images: Image[];
 }
 
-export interface Track {
-  id: string;
-  type: string;
-  name: string;
+export interface Track extends SpotifyObject {
   preview_url: string;
   album: Album;
   artists: Artist[];
 }
 
-export interface Artist {
-  id: string;
-  type: string;
-  name: string;  
+export interface Artist extends SpotifyObject {
 }
 
-export interface Tracks {
-  items: Track[];
+export interface SpotifyPagination {
+  items: SpotifyObject[];
   next: string;
   previous: string;
+}
+
+export interface Tracks extends SpotifyPagination {
+  items: Track[];
 }
 
 export interface SearchData {
