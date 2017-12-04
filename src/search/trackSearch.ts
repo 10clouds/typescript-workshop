@@ -2,12 +2,56 @@ import {buildUrl} from '../utils/urls';
 
 const baseUrl = `https://spotify-proxy-workshop.herokuapp.com/search`;
 
-export class TrackSearch {
-  nextUrl;
-  previousUrl;
+export interface Image {
+  height: number;
+  width: number;
+  url: string;
+}
 
-  async search(query, direction) {
-    let url;
+export interface Album {
+  id: string;
+  type: string;
+  name: string;
+  album_type: string;
+  images: Image[];
+}
+
+export interface Track {
+  id: string;
+  type: string;
+  name: string;
+  preview_url: string;
+  album: Album;
+  artists: Artist[];
+}
+
+export interface Artist {
+  id: string;
+  type: string;
+  name: string;  
+}
+
+export interface Tracks {
+  items: Track[];
+  next: string;
+  previous: string;
+}
+
+export interface SearchData {
+  tracks: Tracks;
+}
+
+export enum Direction {
+  Next = 1,
+  Previous = -1,
+}
+
+export class TrackSearch {
+  nextUrl: string;
+  previousUrl: string;
+
+  async search(query: string, direction?: Direction) {
+    let url: string;
 
     if (direction) {
       const directionUrl = this.paginationUrl(direction);
@@ -29,7 +73,7 @@ export class TrackSearch {
     }
 
     const response = await fetch(url);
-    const data = await response.json();
+    const data = await response.json() as SearchData;
 
     this.nextUrl = data.tracks.next;
     this.previousUrl = data.tracks.previous;
@@ -37,15 +81,15 @@ export class TrackSearch {
     return data;
   }
 
-  hasDirection(direction) {
+  hasDirection(direction: Direction) {
     return !!this.paginationUrl(direction);
   }
 
-  paginationUrl(direction) {
+  paginationUrl(direction: Direction) {
     switch (direction) {
-      case 1:
+      case Direction.Next:
         return this.nextUrl;
-      case -1:
+      case Direction.Previous:
         return this.previousUrl;
     }
   }
