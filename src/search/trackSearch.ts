@@ -1,6 +1,5 @@
 import {buildUrl} from '../utils/urls';
 
-const baseUrl = `https://spotify-proxy-workshop.herokuapp.com/search`;
 
 export interface Image {
   height: number;
@@ -48,8 +47,10 @@ export enum Direction {
 }
 
 export class TrackSearch {
-  nextUrl: string;
-  previousUrl: string;
+  private static readonly baseUrl = `https://spotify-proxy-workshop.herokuapp.com/search`;
+
+  private nextUrl: string;
+  private previousUrl: string;
 
   async search(query: string, direction?: Direction) {
     let url: string;
@@ -66,7 +67,7 @@ export class TrackSearch {
 
       url = directionUrl;
     } else {
-      url = buildUrl(baseUrl, {
+      url = buildUrl(TrackSearch.baseUrl, {
         q: query,
         type: 'track',
         limit: 12,
