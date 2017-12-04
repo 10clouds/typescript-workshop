@@ -1,15 +1,26 @@
 import * as React from 'react';
-import {Component} from 'react';
+import {Component, ChangeEvent} from 'react';
 
-import {TrackSearch} from './trackSearch';
+import {TrackSearch, Track, Direction} from './trackSearch';
 import {TrackList} from './TrackList';
 import {Pagination} from "./Pagination";
 
-export class Search extends Component {
+
+export interface SearchProps {
+
+}
+
+export interface SearchState {
+  query: string;
+  results: Track[];
+  isRequestPending: boolean;
+}
+
+export class Search extends Component<SearchProps, SearchState> {
   searchTracks = new TrackSearch();
 
-  constructor() {
-    super();
+  constructor(props: SearchProps) {
+    super(props);
 
     this.state = {
       query: '',
@@ -25,13 +36,13 @@ export class Search extends Component {
     this.updateResults(this.state.query);
   }
 
-  queryChanged(event) {
+  queryChanged(event: ChangeEvent<HTMLInputElement>) {
     const query = event.target.value;
     this.setState({query});
     this.updateResults(query);
   }
 
-  async updateResults(query, direction) {
+  async updateResults(query: string, direction?: Direction) {
     if (!query) {
       this.setState({results: []});
       return;
@@ -51,7 +62,7 @@ export class Search extends Component {
     );
   }
 
-  isDirectionHidden(direction) {
+  isDirectionHidden(direction: Direction) {
     if (!this.state.query || this.state.isRequestPending) {
       return true;
     }
