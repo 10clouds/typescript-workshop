@@ -29,7 +29,7 @@ TypeScript to nadzbiór ES6, posiada także wparcie dla JSX, co oznacza, że mo�
     - dodaj do `resolve.extensions` rozszerzenia `ts` i `tsx`
     - zmień `babel-loader` na `awesome-typescript-loader`
     - zmień `test` tak aby TypeScript loader obsługiwał zarówno pliki `.js`/`.jsx` jak i `.ts`/`.tsx` - `[jt]sx?`
-- usuń nieużywane paczki związane z Babelem z `package.json`
+- usuń nieużywane paczki związane z Babelem z `package.json`, oprócz `babel-polyfill`
 - usuń nieużywane paczki z `node_modules` za pomocą `npm prune`
 - zrestartuj webpacka
 
