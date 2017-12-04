@@ -26,14 +26,14 @@ Direction.Left  === 2
 Direction.Right === 3
 ```
 
-Możemy jednak zmienić w dowolnym miejscu sekwencję, np.:
+Możemy jednak zmienić w dowolnym miejscu sekwencję lub przypisać wartość typu string, np.:
 
 ```ts
 enum Direction {
-    Up = 1,     // 1
-    Down,       // 2
-    Left = 11,  // 11
-    Right,      // 12
+    Up = 1,          // 1
+    Down,            // 2
+    Left = 11,       // 11
+    Right = 'RIGHT', // RIGHT
 }
 ```
 
