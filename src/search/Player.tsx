@@ -4,8 +4,20 @@ import {Howl, Howler} from 'howler';
 
 Howler.volume(0.1);
 
-export class Player extends Component {
-  constructor(props) {
+export interface PlayerProps {
+  src: string;
+}
+
+export interface PlayerState {
+  isPlaying: boolean;
+}
+
+export class Player extends Component<PlayerProps, PlayerState> {
+  private static activePlayer?: Player;
+  
+  private howl: Howl;
+
+  constructor(props: PlayerProps) {
     super(props);
 
     this.state = {
