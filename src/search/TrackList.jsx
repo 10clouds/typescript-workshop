@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {Track} from './Track';
-import {SpotifyTrackData} from './trackSearch';
 
 export function TrackList(props) {
   const tracks = props.tracks.map(

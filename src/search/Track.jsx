@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {Player} from './Player';
-import {SpotifyTrackData} from './trackSearch';
 
 export function Track(props) {
   const track = props.data;
