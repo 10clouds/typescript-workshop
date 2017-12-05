@@ -72,7 +72,7 @@ Module ".../typescript-workshop/node_modules/@types/react/index" has no default 
 - zmień sposób importu Reacta w `src/main.tsx`
 - spróbuj wprowadzić kilka prostych błędów w `src/main.tsx`
 
-To tyle jeśli chodzi o `main.tsx`, rozszerzenia pozostałych plików zmieniaj sukcesywanie, gdy będziesz nad nimi pracować w kolejnych krokach.
+To tyle jeśli chodzi o `main.tsx`, rozszerzenia pozostałych plików zmieniaj sukcesywnie, gdy będziesz nad nimi pracować w kolejnych krokach.
 
 ## Dodatkowa dokumentacja
 
