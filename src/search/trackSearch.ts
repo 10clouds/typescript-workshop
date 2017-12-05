@@ -1,4 +1,5 @@
 import {buildUrl} from '../utils/urls';
+import { isArray } from 'util';
 
 
 export interface Image {
@@ -46,7 +47,27 @@ export enum Direction {
   Previous = -1,
 }
 
+export function isTrack(obj: SpotifyObject): obj is Track {
+  return obj.type === 'track';
+}
 
+export function isAlbum(obj: SpotifyObject): obj is Album {
+  return obj.type === 'album';
+}
+
+export function isArtist(obj: SpotifyObject): obj is Artist {
+  return obj.type === 'artist';
+}
+
+function testGuards(obj: SpotifyObject) {
+  if (isTrack(obj)) {
+    obj.album;
+  } else if (isAlbum(obj)) {
+    obj.album_type;
+  } else if (isArtist(obj)) {
+    obj.name;
+  }
+}
 
 export class SpotifySearch {
   private static readonly baseUrl = `https://spotify-proxy-workshop.herokuapp.com/search`;
