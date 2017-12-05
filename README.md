@@ -36,3 +36,6 @@ webpack.config.js - konfiguracja webpacka
 Rozwiązania krok po kroku dostępne są na gałęziach `step-x`, gdzie `x` to numer
 kroku. Używaj ich w ostateczności. Pamiętaj, że możesz zawsze poprosić
 prowadzących o pomoc i zadać pytanie.
+
+## Spotify API proxy
+Aplikacja korzysta z [API Spotify](https://developer.spotify.com/web-api/endpoint-reference/), które wymaga autoryzacji. Na potrzeby warsztatu udostępnione zostało proste proxy obsługujące requesty GET. Kod proxy napisanego w nodejs do samodzielnego uruchomienia znajduje się [tutaj](https://gist.github.com/aqum/6c914a8535275a8c4733f5498c981d13).
