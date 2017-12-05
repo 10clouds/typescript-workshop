@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Component, ChangeEvent} from 'react';
 
-import {TrackSearch, Track, Direction} from './trackSearch';
+import {SpotifySearch, Track, Direction} from './trackSearch';
 import {TrackList} from './TrackList';
 import {Pagination} from "./Pagination";
 
@@ -17,7 +17,7 @@ export interface SearchState {
 }
 
 export class Search extends Component<SearchProps, SearchState> {
-  searchTracks = new TrackSearch();
+  searchTracks = new SpotifySearch();
 
   constructor(props: SearchProps) {
     super(props);

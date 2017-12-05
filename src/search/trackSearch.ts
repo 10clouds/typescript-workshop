@@ -7,9 +7,11 @@ export interface Image {
   url: string;
 }
 
+export type SpotifyType = 'track' | 'album' | 'artist';
+
 export interface SpotifyObject {
   id: string;
-  type: string;
+  type: SpotifyType;
   name: string;
 }
 
@@ -44,13 +46,15 @@ export enum Direction {
   Previous = -1,
 }
 
-export class TrackSearch {
+
+
+export class SpotifySearch {
   private static readonly baseUrl = `https://spotify-proxy-workshop.herokuapp.com/search`;
 
   private nextUrl: string;
   private previousUrl: string;
 
-  async search(query: string, direction?: Direction) {
+  async search(query: string, direction?: Direction, type: SpotifyType = 'track') {
     let url: string;
 
     if (direction) {
@@ -65,9 +69,9 @@ export class TrackSearch {
 
       url = directionUrl;
     } else {
-      url = buildUrl(TrackSearch.baseUrl, {
+      url = buildUrl(SpotifySearch.baseUrl, {
         q: query,
-        type: 'track',
+        type: type,
         limit: 12,
       });
     }
