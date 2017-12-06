@@ -2,11 +2,50 @@ import {buildUrl} from '../utils/urls';
 
 const baseUrl = `https://spotify-proxy-workshop.herokuapp.com/search`;
 
+interface Image {
+  height: number;
+  width: number;
+  url: string;
+}
+
+interface SpotifyObject {
+  id: string;
+  type: string;
+  name: string;
+}
+
+interface Artist extends SpotifyObject { }
+
+interface Album extends SpotifyObject { 
+  album_type: string;
+  images: Image[];
+}
+
+interface Track extends SpotifyObject {
+  preview_url: string;
+  album: Album;
+  artists: Artist[];
+}
+
+interface SpotifyPagination {
+  items: SpotifyObject[];
+  next: string;
+  previous: string;
+}
+
+interface Tracks extends SpotifyPagination {
+  items: Track[];
+}
+
+interface SearchData {
+  tracks: Tracks;
+}
+
 export class TrackSearch {
   nextUrl;
   previousUrl;
 
-  async search(query, direction) {
+  async search(query, direction): Promise<SearchData> {
     let url;
 
     if (direction) {
