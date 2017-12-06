@@ -1,15 +1,15 @@
-import React from 'react';
+import * as React from 'react';
 import {Component} from 'react';
 
 import {TrackSearch} from './trackSearch';
 import {TrackList} from './TrackList';
 import {Pagination} from "./Pagination";
 
-export class Search extends Component {
+export class Search extends Component<any, any> {
   searchTracks = new TrackSearch();
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       query: '',
@@ -31,7 +31,7 @@ export class Search extends Component {
     this.updateResults(query);
   }
 
-  async updateResults(query, direction) {
+  async updateResults(query, direction?) {
     if (!query) {
       this.setState({results: []});
       return;

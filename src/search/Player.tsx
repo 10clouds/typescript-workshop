@@ -1,10 +1,13 @@
-import React from 'react';
+import * as React from 'react';
 import {Component} from 'react';
 import {Howl, Howler} from 'howler';
 
 Howler.volume(0.1);
 
-export class Player extends Component {
+export class Player extends Component<any, any> {
+  static activePlayer;
+  howl;
+
   constructor(props) {
     super(props);
 
