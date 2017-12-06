@@ -14,7 +14,7 @@ Howler.volume(0.1);
 
 export class Player extends Component<PlayerProps, PlayerState> {
   static activePlayer;
-  howl;
+  howl: Howl;
 
   constructor(props) {
     super(props);
