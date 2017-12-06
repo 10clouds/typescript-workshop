@@ -1,11 +1,17 @@
 import * as React from 'react';
 import {Component} from 'react';
 
-import {TrackSearch} from './trackSearch';
+import {TrackSearch, Track} from './trackSearch';
 import {TrackList} from './TrackList';
 import {Pagination} from "./Pagination";
 
-export class Search extends Component<any, any> {
+interface SearchState {
+  query: string;
+  results: Track[];
+  isRequestPending: boolean;
+}
+
+export class Search extends Component<{}, SearchState> {
   searchTracks = new TrackSearch();
 
   constructor(props) {

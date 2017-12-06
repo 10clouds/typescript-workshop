@@ -2,9 +2,17 @@ import * as React from 'react';
 import {Component} from 'react';
 import {Howl, Howler} from 'howler';
 
+interface PlayerProps {
+  src: string;
+}
+
+interface PlayerState {
+  isPlaying: boolean;
+}
+
 Howler.volume(0.1);
 
-export class Player extends Component<any, any> {
+export class Player extends Component<PlayerProps, PlayerState> {
   static activePlayer;
   howl;
 

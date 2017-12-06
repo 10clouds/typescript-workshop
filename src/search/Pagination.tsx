@@ -1,6 +1,13 @@
 import * as React from 'react';
 import { Component } from 'react';
 
+interface PaginationState {
+  onPrevious: () => void;
+  onNext: () => void;
+  hidePrevious: boolean;
+  hideNext: boolean;
+}
+
 export function Pagination(props) {
   return (
     <div className='pagination'>
