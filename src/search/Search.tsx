@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Component} from 'react';
 
-import {TrackSearch, Track} from './trackSearch';
+import {SpotifySearch, Track, Direction} from './spotifySearch';
 import {TrackList} from './TrackList';
 import {Pagination} from "./Pagination";
 
@@ -12,7 +12,7 @@ interface SearchState {
 }
 
 export class Search extends Component<{}, SearchState> {
-  searchTracks = new TrackSearch();
+  searchTracks = new SpotifySearch();
 
   constructor(props) {
     super(props);
@@ -37,7 +37,7 @@ export class Search extends Component<{}, SearchState> {
     this.updateResults(query);
   }
 
-  async updateResults(query, direction?) {
+  async updateResults(query, direction?: Direction) {
     if (!query) {
       this.setState({results: []});
       return;

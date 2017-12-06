@@ -37,12 +37,23 @@ interface SearchData {
   albums?: SpotifyPagination<Track>;
 }
 
-export class TrackSearch {
+export enum Direction {
+  Previous = -1,
+  Next = 1,
+}
+
+type TrackType = 'track' | 'artist' | 'album';
+
+export function isTrack(obj: SpotifyObject): obj is Track {
+  return obj.type === 'track';
+}
+
+export class SpotifySearch {
   private static baseUrl = `https://spotify-proxy-workshop.herokuapp.com/search`;
   private nextUrl;
   private previousUrl;
 
-  async search(query, direction): Promise<SearchData> {
+  async search(query, direction: Direction, type: TrackType = 'track'): Promise<SearchData> {
     let url;
 
     if (direction) {
@@ -57,9 +68,9 @@ export class TrackSearch {
 
       url = directionUrl;
     } else {
-      url = buildUrl(TrackSearch.baseUrl, {
+      url = buildUrl(SpotifySearch.baseUrl, {
         q: query,
-        type: 'track',
+        type,
         limit: 12,
       });
     }
@@ -73,15 +84,15 @@ export class TrackSearch {
     return data;
   }
 
-  hasDirection(direction) {
+  hasDirection(direction: Direction) {
     return !!this.paginationUrl(direction);
   }
 
-  paginationUrl(direction) {
+  paginationUrl(direction: Direction) {
     switch (direction) {
-      case 1:
+      case Direction.Next:
         return this.nextUrl;
-      case -1:
+      case Direction.Previous:
         return this.previousUrl;
     }
   }
